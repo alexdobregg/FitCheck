@@ -23,6 +23,7 @@ const userSchema = new Schema({
     workouts: [{type: Schema.Types.ObjectId, ref: 'Workout'}],
     exercies: [{type: Schema.Types.ObjectId, ref: 'Exercise'}]
 });
+
 userSchema.plugin(passportLocalMongoose);
 
 
