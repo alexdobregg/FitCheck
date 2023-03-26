@@ -12,8 +12,10 @@ const LocalStrategy = require('passport-local');
 
 const userRoutes = require('./routes/users');
 
+const {isLoggedIn} = require('./middleware');
 
 const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://127.0.0.1:27017/fit-check');
 
 const db = mongoose.connection;
@@ -44,11 +46,6 @@ const sessionConfig = {
 };
 app.use(session(sessionConfig));
 app.use(flash());
-app.use((req, res, next) => {
-    res.locals.success = req.flash('success');
-    res.locals.error = req.flash('error');
-    next();
-});
 
 
 app.use(passport.initialize());
@@ -58,7 +55,12 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+});
 
 
 app.use('/', userRoutes);
