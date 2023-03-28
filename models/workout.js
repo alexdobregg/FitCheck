@@ -3,11 +3,9 @@ const {Schema} = mongoose;
 
 const exerciseSchema = new Schema({
     name: String,
-    image: String,
-    instructions: String,
     muscle: String,
-    sets: Number,
-    reps: Number
+    image: String,
+    instructions: String
 });
 
 const Exercise = mongoose.model('Exercise', exerciseSchema);
@@ -15,7 +13,7 @@ module.exports = Exercise;
 
 const workoutSchema = new Schema({
     name: String,
-    exercises: [{type: Schema.Types.ObjectId, ref: 'Exercise'}],
+    exercises: [{type: Schema.Types.ObjectId, ref: 'Exercise'}]
 });
 
 const Workout = mongoose.model('Workout', workoutSchema);

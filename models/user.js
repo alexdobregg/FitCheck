@@ -8,7 +8,6 @@ const userSchema = new Schema({
         required: true,
         unique: true
     },
-    // picture: String,
     name: String,
     weight: Number,
     height: Number,

@@ -7,22 +7,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link text-white" href="/showUsers">My recipes</a>
+                    <a class="nav-link text-white" href="/">My recipes</a>
                     <a class="nav-link text-white" href="/">My exercises</a>
-                    <% if(currentUser.role === 'basic') { %>
-                        <a class="nav-link text-white-50 disabled" href="/">&#128274;Day's Workout</a>
-                    <% } else { %>
+                    <% if(currentUser.role === 'premium' || currentUser.role === 'admin') { %>
                         <a class="nav-link text-white" href="/">Day's Workout</a>
+                    <% } else { %>
+                        <a class="nav-link text-white-50 disabled" href="/">&#128274;Day's Workout</a>
                     <% } %>
                 </div>
-                <div class="navbar-nav ms-auto dropdown">
-                    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <%- currentUser.name %>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" href="/">Profile</a></li>
-                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                    </ul>
+                <div class="navbar-nav ms-auto me-3">
+                    <% if(currentUser.role === 'admin') { %>
+                        <div class="dropdown">
+                            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin panel
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="/users/index">All users</a></li>
+                            </ul>
+                        </div>
+                    <% } %>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <%= currentUser.name %>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
