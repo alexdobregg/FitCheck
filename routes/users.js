@@ -17,8 +17,8 @@ router.route('/profile')
     .get(isLoggedIn, users.renderProfile)
     .put(isLoggedIn, catchAsync(users.updateProfile));
 
-router.route('/users/index')
-    .get(isLoggedIn, isAdmin, users.index);
+router.route('/users/admin/index')
+    .get(isLoggedIn, isAdmin, users.adminIndex);
 
 router.route('/users/:id')
     .get(isLoggedIn, isAdmin, catchAsync(users.renderEdit))

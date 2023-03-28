@@ -1,14 +1,30 @@
 <% if(currentUser) { %>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">FitCheck</a>
+            <a class="navbar-brand nav-link" href="/">FitCheck</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link text-white" href="/">My recipes</a>
-                    <a class="nav-link text-white" href="/">My exercises</a>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            My favorites
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item text-white" href="/">My recipes</a></li>
+                            <li><a class="dropdown-item text-white" href="/">My exercises</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            All categories
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item text-white" href="/">All recipes</a></li>
+                            <li><a class="dropdown-item text-white" href="/">All exercises</a></li>
+                        </ul>
+                    </div>
                     <% if(currentUser.role === 'premium' || currentUser.role === 'admin') { %>
                         <a class="nav-link text-white" href="/">Day's Workout</a>
                     <% } else { %>
@@ -22,7 +38,8 @@
                                 Admin panel
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/users/index">All users</a></li>
+                                <li><a class="dropdown-item" href="/users/admin/index">All users</a></li>
+                                <li><a class="dropdown-item" href="/">New competition</a></li>
                             </ul>
                         </div>
                     <% } %>

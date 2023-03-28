@@ -65,9 +65,9 @@ module.exports.logout = (req, res) => {
     });
 };
 
-module.exports.index = async (req, res) => {
+module.exports.adminIndex = async (req, res) => {
     const allUsers = await User.find({});
-    res.render('users/index', { allUsers });
+    res.render('users/adminIndex', { allUsers });
 };
 
 
@@ -82,5 +82,5 @@ module.exports.deleteUser = async(req, res) => {
     const { id } = req.params;
     await User.findByIdAndDelete(id);
     req.flash('success', 'Successfully deleted the user!')
-    res.redirect('/users/index');
+    res.redirect('/users/admin/index');
 }
