@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 
 const competitionSchema = new Schema({
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
-    duration: Number, 
+    duration: Date, 
     information: String,
     winner: {type: Schema.Types.ObjectId, ref: 'User'},
     prize: String
