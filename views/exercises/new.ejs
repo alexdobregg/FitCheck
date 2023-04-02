@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <div class="container d-flex justify-content-center align-items-center card mb-4" style="width: 25rem;">
+        <div class="card-body">
+            <div class="row">
+                <h5>New exercise</h5>
+                <form action="/exercises/new" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="name">Exercise name</label>
+                        <input class="form-control" type="text" id="name" name="exercise[name]" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="muscle">Muscle</label>
+                        <select class="form-control select" id="muscle" name="exercise[muscle]" required>
+                            <option value="">--None--</option>
+                            <option value="abdominals">Abdominals</option>
+                            <option value="biceps">Biceps</option>
+                            <option value="calves">Calves</option>
+                            <option value="lower_back">Lower Back</option>
+                            <option value="middle_back">Middle Back</option>
+                            <option value="triceps">Triceps</option>
+                            <option value="quadriceps">Quadriceps</option>
+                            <option value="traps">Traps</option>
+                            <option value="glutes">Glutes</option>
+                            <option value="forearms">Forearms</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="instructions">Instructions</label>
+                        <textarea class="form-control" id="prize" name="exercise[prize]" required></textarea>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-primary btn-block col-6 mb-3 mx-auto" type="submit">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

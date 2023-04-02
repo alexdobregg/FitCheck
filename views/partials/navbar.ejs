@@ -9,20 +9,20 @@
                 <div class="navbar-nav">
                     <div class="dropdown">
                         <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            My favorites
+                            All categories
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item text-white" href="/">My recipes</a></li>
-                            <li><a class="dropdown-item text-white" href="/">My exercises</a></li>
+                            <li><a class="dropdown-item text-white" href="/">All exercises</a></li>
+                            <li><a class="dropdown-item text-white" href="/">All recipes</a></li>
                         </ul>
                     </div>
                     <div class="dropdown">
                         <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            All categories
+                            My favorites
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item text-white" href="/">All recipes</a></li>
-                            <li><a class="dropdown-item text-white" href="/">All exercises</a></li>
+                            <li><a class="dropdown-item text-white" href="/">My exercises</a></li>
+                            <li><a class="dropdown-item text-white" href="/">My recipes</a></li>
                         </ul>
                     </div>
                     <% if(currentUser.role === 'premium' || currentUser.role === 'admin') { %>
@@ -40,6 +40,8 @@
                             <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" href="/users/admin/index">All users</a></li>
                                 <li><a class="dropdown-item" href="/competitions/new">New competition</a></li>
+                                <li><a class="dropdown-item" href="/exercises/new">New exercise</a></li>
+                                <li><a class="dropdown-item" href="/recipes/new">New recipe</a></li>
                             </ul>
                         </div>
                     <% } %>

@@ -5,7 +5,7 @@ const catchAsync = require('../utils/catchAsync');
 const {isLoggedIn, isAdmin} = require('../middleware');
 
 router.route('/competitions/new')
-    .get(competitions.renderNew)
-    .post(competitions.createCompetition);
+    .get(isLoggedIn, isAdmin, competitions.renderNew)
+    .post(isLoggedIn, isAdmin, catchAsync(competitions.createCompetition));
 
 module.exports = router;

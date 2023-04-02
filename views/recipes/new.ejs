@@ -1,0 +1,79 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <div class="container d-flex justify-content-center align-items-center card mb-4" style="width: 25rem;">
+        <div class="card-body">
+            <div class="row">
+                <h5>New recipe</h5>
+                <form action="/recipes/new" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="name">Recipe name</label>
+                        <input class="form-control" type="text" id="name" name="recipe[name]" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="instructions">Instructions</label>
+                        <textarea class="form-control" id="instructions" name="recipe[instructions]" required></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-5">
+                            <h4>Ingredients</h4>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-success btn-block" onclick="addIngredient()" type="button">Add</button>    
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-danger btn-block" onclick="removeIngredient()" type="button">Remove</button>    
+                        </div>
+                    </div>
+                    <div class="mb-3" id="ingredients">
+                        <div class="row mb-3" id=ingredient0> 
+                            <div class="col-5">
+                                <label class="form-label" for="name0">Name</label>
+                                <input class="form-control" type="text" id="name0" name="recipe[ingredients][0][name]" required>
+                            </div>
+                            <div class="col-3">
+                                <label class="form-label" for="quantity0">Quantity</label>
+                                <input class="form-control" type="text" id="quantity0" name="recipe[ingredients][0][quantity]" required>
+                            </div>
+                            <div class="col-3">
+                                <label class="form-label" for="unit0">Unit</label>
+                                <input class="form-control" type="text" id="unit0" name="recipe[ingredients][0][unit]" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-primary btn-block col-6 mb-3 mx-auto" type="submit">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var ingredientNo = 1;
+    function addIngredient() {
+        document.getElementById('ingredients').innerHTML +=
+            `<div class="row mb-3" id=ingredient${ingredientNo}>` +
+            '<div class="col-5">' +
+            `<label class="form-label" for="name${ingredientNo}">Name</label>` +
+            `<input class="form-control" type="text" id="name${ingredientNo}" name="recipe[ingredients][${ingredientNo}][name]" required>` +
+            '</div>' +
+            '<div class="col-3">' +
+            `<label class="form-label" for="quantity${ingredientNo}">Quantity</label>` +
+            `<input class="form-control" type="text" id="quantity${ingredientNo}" name="recipe[ingredients][${ingredientNo}][quantity]" required>` +
+            '</div>' +
+            '<div class="col-3">' +
+            `<label class="form-label" for="unit${ingredientNo}">Unit</label>` +
+            `<input class="form-control" type="text" id="unit${ingredientNo}" name="recipe[ingredients][${ingredientNo}][unit]" required>` +
+            '</div>' +
+            '</div>'
+        ingredientNo++;
+    }
+
+    function removeIngredient() {
+        if (ingredientNo > 1) {
+            document.getElementById(`ingredient${ingredientNo - 1}`).remove()
+            ingredientNo--;
+        }
+    }
+</script>

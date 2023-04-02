@@ -7,6 +7,6 @@ module.exports.renderNew = (req, res) => {
 module.exports.createCompetition = async (req, res) => {
     const competition = new Competition(req.body.competition);
     await competition.save();
-    req.flash('success', 'Successfully made a new competition!');
+    req.flash('success', 'Successfully created a new competition!');
     res.redirect('/');
 }

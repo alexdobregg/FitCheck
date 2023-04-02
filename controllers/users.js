@@ -16,7 +16,7 @@ module.exports.renderEdit = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id);
     if (!user) {
-        req.flash('error', 'Cannot find that campground!');
+        req.flash('error', 'Cannot find that user!');
         return res.redirect('/users/index');
     }
     res.render('users/edit', { user });

@@ -12,6 +12,8 @@ const LocalStrategy = require('passport-local');
 
 const userRoutes = require('./routes/users');
 const competitionRoutes = require('./routes/competitions');
+const exerciseRoutes = require('./routes/exercises');
+const recipeRoutes = require('./routes/recipes');
 
 const {isLoggedIn} = require('./middleware');
 
@@ -66,6 +68,8 @@ app.use((req, res, next) => {
 
 app.use('/', userRoutes);
 app.use('/', competitionRoutes);
+app.use('/', exerciseRoutes);
+app.use('/', recipeRoutes);
 
 app.get('/', (req, res) => {
     if (!req.isAuthenticated()) {
