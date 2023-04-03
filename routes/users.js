@@ -25,6 +25,9 @@ router.route('/users/:id')
     .put(isLoggedIn, isAdmin, catchAsync(users.editUser))
     .delete(isLoggedIn, isAdmin, catchAsync(users.deleteUser));
 
+router.route('/users/:id/addFavoriteExercise/:idEx')
+    .put(isLoggedIn, catchAsync(users.addFavoriteExercise));
+
 router.get('/logout', users.logout);
 
 module.exports = router;

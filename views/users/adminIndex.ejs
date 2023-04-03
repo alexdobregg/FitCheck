@@ -1,31 +1,28 @@
 <% layout('layouts/boilerplate')%>
-<h1 class="container d-flex justify-content-center align-items-center text-white">All users</h1>
-<div class="container">
-    <% for (let user of allUsers){%>
-        <div class="row">
-            <div class="card mb-3 mx-auto" style="width: 50rem;">
+    <div class="row">
+        <% for (let user of allUsers){%>
+            <div class="container card mb-3" style="width: 45rem;">
                 <div class="card-body">
-                    <h5 class="card-title">
-                        <%= user.name + ' - ' + user.username %>
-                    </h5>
-                    <div class="row">
-                        <div class="card-text col-7 mb-3">
-                            Email: <%= user.email %>
+                        <h5 class="card-title">
+                            <%= user.name + ' - ' + user.username %>
+                        </h5>
+                        <div class="row mb-3">
+                            <div class="card-text col-md-8">
+                                Email: <%= user.email %>
+                            </div>
+                            <div class="card-text col-md-4">
+                                Role: <%= user.role.charAt(0).toUpperCase() + user.role.slice(1) %>
+                            </div>
                         </div>
-                        <div class="card-text col-3 mb-3">
-                            Role: <%= user.role.charAt(0).toUpperCase() + user.role.slice(1) %>
+                        <div class="row">
+                            <div class="col-md mb-3 text-center">
+                                <a class="btn btn-primary btn-block" role="button" href="/users/<%=user._id%>">Edit</a>
+                            </div>
+                            <form class="col-md mb-3 text-center" action="/users/<%=user.id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-block">Delete</button>
+                            </form>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 mb-3">
-                            <a class="btn btn-primary btn-block" role="button" href="/users/<%=user._id%>">Edit</a>
-                        </div>
-                        <form class="col-2 mb-3 ms-auto" action="/users/<%=user.id%>?_method=DELETE" method="POST">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
                 </div>
             </div>
-        </div>
-    <% } %>
-</div>
+        <% } %>
+    </div>

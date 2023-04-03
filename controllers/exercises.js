@@ -9,4 +9,9 @@ module.exports.createExercise = async (req, res) => {
     await exercise.save();
     req.flash('success', 'Successfully created a new exercise!');
     res.redirect('/');
-}
+};
+
+module.exports.index = async(req, res) => {
+    const allExercises = await Exercise.find({});
+    res.render('exercises/index', { allExercises });
+};

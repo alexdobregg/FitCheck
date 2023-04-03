@@ -20,3 +20,12 @@ body {
     padding-left: 8px;
     padding-right: 8px;
 }
+
+.star-checked {
+    color: orange;
+}
+
+button.fa-star {
+    border: none;
+    background-color: white;
+}

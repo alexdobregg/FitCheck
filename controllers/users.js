@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Exercise = require('../models/exercise');
 
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');
@@ -76,11 +77,25 @@ module.exports.editUser = async(req, res) => {
     await User.findByIdAndUpdate(id, { ...req.body.user });
     req.flash('success', 'Successfully updated the user!');
     res.redirect(`/users/${id}`);
-}
+};
 
 module.exports.deleteUser = async(req, res) => {
     const { id } = req.params;
     await User.findByIdAndDelete(id);
     req.flash('success', 'Successfully deleted the user!')
     res.redirect('/users/admin/index');
-}
+};
+
+module.exports.addFavoriteExercise = async(req, res) => {
+    var currentUser = req.user;
+    var exerciseId = req.originalUrl.split(/[/?]+/)[4];
+    const exercise = await Exercise.findById(exerciseId);
+    var idx = currentUser.exercises.findIndex(ex => ex.toString() === exerciseId);
+    if (idx == -1) {
+        currentUser.exercises.push(exercise);
+    } else {
+        currentUser.exercises.splice(idx, 1);
+        // currentUser.exercise.remove(exercise);
+    }
+    await User.findByIdAndUpdate(currentUser.id, { ...currentUser });
+};

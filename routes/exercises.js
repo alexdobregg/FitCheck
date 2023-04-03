@@ -8,4 +8,7 @@ router.route('/exercises/new')
     .get(isLoggedIn, isAdmin, exercises.renderNew)
     .post(isLoggedIn, isAdmin, catchAsync(exercises.createExercise));
 
+router.route('/exercises/index')
+    .get(isLoggedIn, exercises.index);
+
 module.exports = router;
