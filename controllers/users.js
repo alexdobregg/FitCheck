@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Exercise = require('../models/exercise');
+const Recipe = require('../models/recipe');
 
 module.exports.renderRegister = (req, res) => {
     res.render('users/register');
@@ -104,6 +105,19 @@ module.exports.addFavoriteExercise = async(req, res) => {
         currentUser.exercises.push(exercise);
     } else {
         currentUser.exercises.splice(idx, 1);
+    }
+    await User.findByIdAndUpdate(currentUser.id, { ...currentUser });
+};
+
+module.exports.addFavoriteRecipe = async(req, res) => {
+    var currentUser = req.user;
+    var recipeId = req.originalUrl.split(/[/?]+/)[4];
+    const recipe = await Recipe.findById(recipeId);
+    var idx = currentUser.recipes.findIndex(ex => ex.toString() === recipeId);
+    if (idx == -1) {
+        currentUser.recipes.push(recipe);
+    } else {
+        currentUser.recipes.splice(idx, 1);
     }
     await User.findByIdAndUpdate(currentUser.id, { ...currentUser });
 };

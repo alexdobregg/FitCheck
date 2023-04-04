@@ -2,32 +2,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container">
     <% for (let exercise of allExercises){%>
-            <div class="card mb-3">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img class="img-fluid" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <h5 class="card-title">
-                                    <%= exercise.name + " - " + (exercise.muscle.charAt(0).toUpperCase() + exercise.muscle.slice(1)) %>
-                                    <% if (currentUser.exercises.find(ex => ex.toString() === exercise.id) == undefined) { %>
-                                        <form action="/users/<%=currentUser.id%>/addFavoriteExercise/<%=exercise.id%>?_method=PUT" method="POST" style="display: inline;">
-                                            <button class="fa fa-star"></button>
-                                        </form>
-                                    <% } else { %>
-                                        <form action="/users/<%=currentUser.id%>/addFavoriteExercise/<%=exercise.id%>?_method=PUT" method="POST" style="display: inline;">
-                                            <button class="fa fa-star star-checked"></button>
-                                        </form>
-                                    <% } %>
-                                </h5>
-                                <p class="card-text"> <%= exercise.instructions %></p>
-                            </div>
-                        </div>
+        <div class="card mb-3 mx-auto" style="width: 30rem;">
+            <div class="row" >
+                <img class="card-img-top" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80">
+                <div class="card-body">
+                    <div class="row mb-3 text-center">
+                        <h5 class="card-title">
+                            <%= exercise.name + " - " + (exercise.muscle.charAt(0).toUpperCase() + exercise.muscle.slice(1)) %>
+                            <form action="/users/<%=currentUser.id%>/addFavoriteExercise/<%=exercise.id%>?_method=PUT" method="POST" target="sub" style="display: inline;">
+                                <% if (currentUser.exercises.find(ex => ex.toString() === exercise.id) == undefined) { %>
+                                    <button class="fa fa-star"></button>
+                                <% } else { %>
+                                    <button class="fa fa-star star-checked"></button>
+                                <% } %>
+                            </form>
+                            <iframe id="subframe" name="sub" style="display: none;"></iframe>
+                        </h5>
+                        <p class="card-text"> <%= exercise.instructions %></p>
                     </div>
                 </div>
             </div>
+        </div>
     <% } %>
 </div>
 

@@ -8,4 +8,10 @@ router.route('/recipes/new')
     .get(isLoggedIn, isAdmin, recipes.renderNew)
     .post(isLoggedIn, isAdmin, catchAsync(recipes.createRecipe));
 
+router.route('/recipes/index')
+    .get(isLoggedIn, recipes.index);
+
+router.route('/recipes/favorites/index')
+    .get(isLoggedIn, recipes.favoriteIndex);
+
 module.exports = router;

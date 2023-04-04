@@ -60,3 +60,8 @@ module.exports.editExercise = async(req, res) => {
     req.flash('success', 'Successfully updated the exercise!');
     res.redirect(`/exercises/${id}`);
 };
+
+module.exports.favoriteIndex = async(req, res) => {
+    var allExercises = await Exercise.find({ '_id': { $in: req.user.exercises.map(ex => ex.toString())}});
+    res.render('exercises/index', { allExercises });
+};

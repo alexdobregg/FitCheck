@@ -28,6 +28,10 @@ router.route('/users/:id')
 router.route('/users/:id/addFavoriteExercise/:idEx')
     .put(isLoggedIn, catchAsync(users.addFavoriteExercise));
 
+router.route('/users/:id/addFavoriteRecipe/:idRec')
+    .put(isLoggedIn, catchAsync(users.addFavoriteRecipe));
+
+
 router.get('/logout', users.logout);
 
 module.exports = router;

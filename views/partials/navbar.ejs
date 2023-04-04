@@ -13,7 +13,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item text-white" href="/exercises/index">All exercises</a></li>
-                            <li><a class="dropdown-item text-white" href="/">All recipes</a></li>
+                            <li><a class="dropdown-item text-white" href="/recipes/index">All recipes</a></li>
                         </ul>
                     </div>
                     <div class="dropdown">
@@ -21,8 +21,8 @@
                             My favorites
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item text-white" href="/">My exercises</a></li>
-                            <li><a class="dropdown-item text-white" href="/">My recipes</a></li>
+                            <li><a class="dropdown-item text-white" href="/exercises/favorites/index">My exercises</a></li>
+                            <li><a class="dropdown-item text-white" href="/recipes/favorites/index">My recipes</a></li>
                         </ul>
                     </div>
                     <% if(currentUser.role === 'premium' || currentUser.role === 'admin') { %>

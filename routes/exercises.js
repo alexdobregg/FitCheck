@@ -14,6 +14,9 @@ router.route('/exercises/index')
 router.route('/exercises/admin/index')
     .get(isLoggedIn, isAdmin, exercises.adminIndex);
 
+router.route('/exercises/favorites/index')
+    .get(isLoggedIn, exercises.favoriteIndex);
+
 router.route('/exercises/:id')
     .get(isLoggedIn, isAdmin, catchAsync(exercises.renderEdit))
     .put(isLoggedIn, isAdmin, catchAsync(exercises.editExercise))
