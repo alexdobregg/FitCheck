@@ -11,4 +11,12 @@ router.route('/exercises/new')
 router.route('/exercises/index')
     .get(isLoggedIn, exercises.index);
 
+router.route('/exercises/admin/index')
+    .get(isLoggedIn, isAdmin, exercises.adminIndex);
+
+router.route('/exercises/:id')
+    .get(isLoggedIn, isAdmin, catchAsync(exercises.renderEdit))
+    .put(isLoggedIn, isAdmin, catchAsync(exercises.editExercise))
+    .delete(isLoggedIn, isAdmin, catchAsync(exercises.deleteExercise));
+
 module.exports = router;

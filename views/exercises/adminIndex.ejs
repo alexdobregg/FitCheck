@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+<% for (let exercise of allExercises){%>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 35rem;">
+            <div class="card-body">
+                <div class="row">
+                    <h5 class="card-title text-center">
+                        <%= exercise.name + " - " + exercise.muscle.split('_').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ') %>
+                    </h5>
+                    <div class="mb-3 text-center">
+                        <%= exercise.instructions %>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <a class="btn btn-primary btn-block" role="button" href="/exercises/<%=exercise._id%>">Edit</a>
+                </div>
+                <form class="col" action="/exercises/<%=exercise.id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-block">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<% } %>

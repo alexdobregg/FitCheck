@@ -10,7 +10,10 @@ module.exports.renderLogin = (req, res) => {
 };
 
 module.exports.renderProfile = (req, res) => {
-    res.render('users/profile');
+    var genders = ['male', 'female', 'other'];
+    genders.splice(genders.findIndex(gender => gender == req.user.gender), 1)
+    genders.unshift(req.user.gender);
+    res.render('users/profile', {genders});
 };
 
 module.exports.renderEdit = async (req, res) => {
@@ -18,9 +21,15 @@ module.exports.renderEdit = async (req, res) => {
     const user = await User.findById(id);
     if (!user) {
         req.flash('error', 'Cannot find that user!');
-        return res.redirect('/users/index');
+        return res.redirect('/users/admin/index');
     }
-    res.render('users/edit', { user });
+    var genders = ['male', 'female', 'other'];
+    genders.splice(genders.findIndex(gender => gender == user.gender), 1)
+    genders.unshift(user.gender);
+    var roles = ['basic', 'premium', 'admin'];
+    roles.splice(roles.findIndex(role => role == user.role), 1);
+    roles.unshift(user.role);
+    res.render('users/edit', { user, genders, roles });
 };
 
 module.exports.login = (req, res) => {
@@ -95,7 +104,6 @@ module.exports.addFavoriteExercise = async(req, res) => {
         currentUser.exercises.push(exercise);
     } else {
         currentUser.exercises.splice(idx, 1);
-        // currentUser.exercise.remove(exercise);
     }
     await User.findByIdAndUpdate(currentUser.id, { ...currentUser });
 };
