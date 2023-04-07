@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="mb-3" id="ingredients">
-                        <div class="row mb-3" id=ingredient0> 
+                        <div class="row mb-3" id="ingredient0"> 
                             <div class="col-5">
                                 <label class="form-label" for="name0">Name</label>
                                 <input class="form-control" type="text" id="name0" name="recipe[ingredients][0][name]" required>
@@ -53,7 +53,7 @@
     var ingredientNo = 1;
     function addIngredient() {
         document.getElementById('ingredients').innerHTML +=
-            `<div class="row mb-3" id=ingredient${ingredientNo}>` +
+            `<div class="row mb-3" id="ingredient${ingredientNo}">` +
             '<div class="col-5">' +
             `<label class="form-label" for="name${ingredientNo}">Name</label>` +
             `<input class="form-control" type="text" id="name${ingredientNo}" name="recipe[ingredients][${ingredientNo}][name]" required>` +

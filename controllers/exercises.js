@@ -41,7 +41,6 @@ module.exports.adminIndex = async(req, res) => {
 
 module.exports.deleteExercise = async(req, res) => {
     const { id } = req.params;
-    await Exercise.findByIdAndDelete(id);
     const allUsers = await User.find({});
     for (let user of allUsers) {
         var idx = user.exercises.findIndex(ex => ex.toString() === id);
@@ -50,6 +49,7 @@ module.exports.deleteExercise = async(req, res) => {
         }
         await User.findByIdAndUpdate(user.id, { ...user });
     }
+    await Exercise.findByIdAndDelete(id);
     req.flash('success', 'Successfully deleted the exercise!')
     res.redirect('/exercises/admin/index');
 };

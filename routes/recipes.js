@@ -14,4 +14,12 @@ router.route('/recipes/index')
 router.route('/recipes/favorites/index')
     .get(isLoggedIn, recipes.favoriteIndex);
 
+router.route('/recipes/admin/index')
+    .get(isLoggedIn, isAdmin, recipes.adminIndex);
+
+router.route('/recipes/:id')
+    .get(isLoggedIn, isAdmin, catchAsync(recipes.renderEdit))
+    .put(isLoggedIn, isAdmin, catchAsync(recipes.editRecipe))
+    .delete(isLoggedIn, isAdmin, catchAsync(recipes.deleteRecipe));
+
 module.exports = router;

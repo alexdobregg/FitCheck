@@ -1,0 +1,81 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <div class="container d-flex justify-content-center align-items-center card mb-4" style="width: 25rem;">
+        <div class="card-body">
+            <div class="row">
+                <form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="name">Recipe name</label>
+                        <input class="form-control" type="text" id="name" name="recipe[name]" value="<%= recipe.name %>" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="instructions">Instructions</label>
+                        <textarea class="form-control" id="instructions" name="recipe[instructions]" required><%= recipe.instructions %></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-5">
+                            <h4>Ingredients</h4>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-success btn-block" onclick="addIngredient()" type="button">Add</button>    
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-danger btn-block" onclick="removeIngredient()" type="button">Remove</button>    
+                        </div>
+                    </div>
+                    <div class="mb-3" id="ingredients">
+                        <% for (let [index, ingredient] of recipe.ingredients.entries()) { %>
+                            <div class="row mb-3" id="ingredient<%= index %>"> 
+                                <div class="col-5">
+                                    <label class="form-label" for="name<%= index %>">Name</label>
+                                    <input class="form-control" type="text" id="name<%= index %>" name="recipe[ingredients][<%= index %>][name]" value="<%= ingredient.name %>" required>
+                                </div>
+                                <div class="col-3">
+                                    <label class="form-label" for="quantity<%= index %>">Quantity</label>
+                                    <input class="form-control" type="text" id="quantity<%= index %>" name="recipe[ingredients][<%= index %>][quantity]" value="<%= ingredient.quantity %>" required>
+                                </div>
+                                <div class="col-3">
+                                    <label class="form-label" for="unit<%= index %>">Unit</label>
+                                    <input class="form-control" type="text" id="unit<%= index %>" name="recipe[ingredients][<%= index %>][unit]" value="<%= ingredient.unit %>" required>
+                                </div>
+                            </div>
+                        <% } %>
+                        <input type="hidden" value="<%= recipe.ingredients.length %>" id="myInput" />
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-primary btn-block col-6 mb-3 mx-auto" type="submit">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var ingredientNo = parseInt(document.querySelector("#myInput").getAttribute('value'));;
+    function addIngredient() {
+        document.getElementById('ingredients').innerHTML +=
+            `<div class="row mb-3" id=ingredient${ingredientNo}>` +
+            '<div class="col-5">' +
+            `<label class="form-label" for="name${ingredientNo}">Name</label>` +
+            `<input class="form-control" type="text" id="name${ingredientNo}" name="recipe[ingredients][${ingredientNo}][name]" required>` +
+            '</div>' +
+            '<div class="col-3">' +
+            `<label class="form-label" for="quantity${ingredientNo}">Quantity</label>` +
+            `<input class="form-control" type="text" id="quantity${ingredientNo}" name="recipe[ingredients][${ingredientNo}][quantity]" required>` +
+            '</div>' +
+            '<div class="col-3">' +
+            `<label class="form-label" for="unit${ingredientNo}">Unit</label>` +
+            `<input class="form-control" type="text" id="unit${ingredientNo}" name="recipe[ingredients][${ingredientNo}][unit]" required>` +
+            '</div>' +
+            '</div>'
+        ingredientNo++;
+    }
+
+    function removeIngredient() {
+        if (ingredientNo > 1) {
+            document.getElementById(`ingredient${ingredientNo - 1}`).remove()
+            ingredientNo--;
+        }
+    }
+</script>

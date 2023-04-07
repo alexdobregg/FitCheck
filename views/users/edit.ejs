@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-center align-items-center card mb-4" style="width: 30rem;">
         <div class="card-body">
             <div class="row">
-                <h5><%= user.name %></h5>
+                <h5><%= user.name + " - Age " + ((new Date(Date.now() - user.birth_date)).getUTCFullYear() - 1970) %></h5>
                 <form action="/users/<%= user.id %>?_method=PUT" method="POST" class="validated-form" novalidate>
                     <div class="row">
                         <div class="col-8 mb-3">
@@ -21,9 +21,9 @@
                     </div>
                     <div class="row">
                         <div class="col-6 mb-3">
-                            <label class="form-label" for="age">Age</label>
-                            <input class="form-control" type="number" id="age" name="user[birth_date]"
-                                value="<%= (new Date(Date.now() - user.birth_date)).getUTCFullYear() - 1970 %>" disabled>
+                            <label class="form-label" for="birth_date">Birth date</label>
+                            <input class="form-control" type="date" id="birth_date" name="user[birth_date]"
+                                value="<%= `${user.birth_date.getFullYear()}-${String(user.birth_date.getMonth() + 1).padStart(2, '0')}-${String(user.birth_date.getDate()).padStart(2, '0')}` %>">
                         </div>
                         <div class="col-6 mb-3">
                             <label class="form-label" for="gender">Gender</label>
@@ -53,3 +53,6 @@
         </div>
     </div>
 </div>
+
+
+<script src="/javascripts/maxDate.js"></script>

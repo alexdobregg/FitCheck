@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+<% for (let recipe of allRecipes){%>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 35rem;">
+            <div class="card-body">
+                <div class="row">
+                    <h5 class="card-title text-center">
+                        <%= recipe.name %>
+                    </h5>
+                    <div class="mb-3 text-center">
+                        <%= recipe.instructions %>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <a class="btn btn-primary btn-block" role="button" href="/recipes/<%=recipe._id%>">Edit</a>
+                </div>
+                <form class="col" action="/recipes/<%=recipe.id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-block">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<% } %>
