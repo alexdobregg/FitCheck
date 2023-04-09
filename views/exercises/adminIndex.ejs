@@ -1,11 +1,16 @@
 <% layout('layouts/boilerplate')%>
+<div class="row">
+    <form action="/exercises/admin/index/"  method="GET" class="mx-auto mb-3" onSubmit="submitConvertAction()" target="sub" style="width: 30rem;">
+        <input class="form-control" type="search" id="search_bar" placeholder="Search by muscle type keyword" aria-label="Search">
+    </form>
+</div>
 <% for (let exercise of allExercises){%>
     <div class="row">
         <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 35rem;">
-            <div class="card-body">
+            <div class="card-body" style="width: 100%">
                 <div class="row">
                     <h5 class="card-title text-center">
-                        <%= exercise.name + " - " + exercise.muscle.split('_').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ') %>
+                        <%= exercise.name + " - " + exercise.muscle %>
                     </h5>
                     <div class="mb-3 text-center">
                         <%= exercise.instructions %>
@@ -23,3 +28,9 @@
         </div>
     </div>
 <% } %>
+
+<script>
+    function submitConvertAction() {
+        location.href = document.querySelector('form').getAttribute('action') + this.search_bar.value;
+    }
+</script>

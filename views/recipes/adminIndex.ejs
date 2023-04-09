@@ -1,8 +1,13 @@
 <% layout('layouts/boilerplate')%>
+<div class="row">
+    <form action="/recipes/admin/index/"  method="GET" class="mx-auto mb-3" onSubmit="submitConvertAction()" target="sub" style="width: 30rem;">
+        <input class="form-control" type="search" id="search_bar" placeholder="Search by ingredient keyword" aria-label="Search">
+    </form>
+</div>
 <% for (let recipe of allRecipes){%>
     <div class="row">
         <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 35rem;">
-            <div class="card-body">
+            <div class="card-body" style="width: 100%">
                 <div class="row">
                     <h5 class="card-title text-center">
                         <%= recipe.name %>
@@ -10,6 +15,15 @@
                     <div class="mb-3 text-center">
                         <%= recipe.instructions %>
                     </div>
+                </div>
+                <div class="row">
+                    <ul>
+                        <% for (let ingredient of recipe.ingredients) { %>
+                            <li>
+                                <%= ingredient.name + " - " + ingredient.quantity + " " + ingredient.unit %>
+                            </li>
+                        <% } %>
+                    </ul>
                 </div>
             </div>
             <div class="row mb-3">
@@ -23,3 +37,9 @@
         </div>
     </div>
 <% } %>
+
+<script>
+    function submitConvertAction() {
+        location.href = document.querySelector('form').getAttribute('action') + this.search_bar.value;
+    }
+</script>

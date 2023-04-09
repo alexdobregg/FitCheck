@@ -14,12 +14,14 @@ module.exports.createRecipe = async (req, res) => {
 
 module.exports.index = async(req, res) => {
     const allRecipes = await Recipe.find({});
-    res.render('recipes/index', { allRecipes });
+    var favorites = false;
+    res.render('recipes/index', { allRecipes, favorites });
 };
 
 module.exports.favoriteIndex = async(req, res) => {
     var allRecipes = await Recipe.find({ '_id': { $in: req.user.recipes.map(ex => ex.toString())}});
-    res.render('recipes/index', { allRecipes });
+    var favorites = true;
+    res.render('recipes/index', { allRecipes, favorites });
 };
 
 module.exports.adminIndex = async(req, res) => {
@@ -58,3 +60,24 @@ module.exports.editRecipe = async(req, res) => {
     req.flash('success', 'Successfully updated the recipe!');
     res.redirect(`/recipes/${id}`);
 };
+
+module.exports.ingredientIndex = async(req, res) => {
+    var { ingredient } = req.params;
+    var allRecipes = await Recipe.find({'ingredients.name': { $regex: ingredient, $options: 'i'}});
+    var favorites = false;
+    if (allRecipes.length == 0) {
+        req.flash('error', "There are no recipes containing this ingredient!");
+        return res.redirect(`/recipes/index`);
+    }
+    res.render('recipes/index', { allRecipes, favorites});
+}
+
+module.exports.ingredientAdminIndex = async(req, res) => {
+    var { ingredient } = req.params;
+    var allRecipes = await Recipe.find({'ingredients.name': { $regex: ingredient, $options: 'i'}});
+    if (allRecipes.length == 0) {
+        req.flash('error', "There are no recipes containing this ingredient!");
+        return res.redirect(`/recipes/admin/index`);
+    }
+    res.render('recipes/adminIndex', { allRecipes });
+}

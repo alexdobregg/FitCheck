@@ -1,0 +1,60 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <form action="/users/friends/index/"  method="GET" class="mx-auto mb-3" onSubmit="submitConvertAction()" target="sub" style="width: 25rem;">
+        <input class="form-control" type="search" id="search_bar" placeholder="Search by name keyword" aria-label="Search">
+    </form>
+</div>
+<% for (let user of allUsers){%>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 25rem;">
+            <div class="card-body" style="width: 100%">
+                <h5 class="card-title text-center">
+                    <%= user.name %>
+                </h5>
+                <div class="row text-center">
+                    <div class="card-text">
+                        Email: <%= user.email %>
+                    </div>
+                    <div class="card-text">
+                        Height: <%= user.height + " cm" %>
+                    </div>
+                    <div class="card-text">
+                        Weight: <%= user.weight + " kg" %>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <form action="/users/<%=currentUser.id%>/followFriend/<%=user.id%>?_method=PUT" method="POST" target="sub">
+                    <% if (currentUser.friends.find(fr => fr.toString() === user.id) == undefined) { %>
+                        <button class="btn btn-primary btn-block follow">Follow</button>
+                    <% } else { %>
+                        <button class="btn btn-secondary btn-block follow">Followed</button>
+                    <% } %>
+                </form>
+            </div>
+        </div>
+    </div>
+<% } %>
+<iframe id="subframe" name="sub" style="display: none;"></iframe>
+
+
+<script>
+    document.querySelectorAll('.follow').forEach(element => {
+        element.addEventListener('click', async function(e) {
+            const url='/profile';
+            if (e.target.classList.contains('btn-primary')) {
+                e.target.classList.remove('btn-primary');
+                e.target.classList.add('btn-secondary');
+                e.target.innerHTML = "Followed";
+            } else {
+                e.target.classList.add('btn-primary');
+                e.target.classList.remove('btn-secondary');
+                e.target.innerHTML = "Follow";
+            }
+        })
+    });
+
+    function submitConvertAction() {
+        location.href = document.querySelector('form').getAttribute('action') + this.search_bar.value;
+    }
+</script>

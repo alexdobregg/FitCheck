@@ -31,7 +31,8 @@ module.exports.createExercise = async (req, res) => {
 
 module.exports.index = async(req, res) => {
     const allExercises = await Exercise.find({});
-    res.render('exercises/index', { allExercises });
+    var favorites = false;
+    res.render('exercises/index', { allExercises, favorites });
 };
 
 module.exports.adminIndex = async(req, res) => {
@@ -63,5 +64,27 @@ module.exports.editExercise = async(req, res) => {
 
 module.exports.favoriteIndex = async(req, res) => {
     var allExercises = await Exercise.find({ '_id': { $in: req.user.exercises.map(ex => ex.toString())}});
-    res.render('exercises/index', { allExercises });
+    var favorites = true;
+    res.render('exercises/index', { allExercises, favorites });
 };
+
+module.exports.muscleIndex = async(req, res) => {
+    var { muscle } = req.params;
+        var allExercises = await Exercise.find({'muscle': { $regex: muscle, $options: 'i'}});
+    var favorites = false;
+    if (allExercises.length == 0) {
+        req.flash('error', "There are no exercises related to this muscle type!");
+        return res.redirect(`/exercises/index`);
+    }
+    res.render('exercises/index', { allExercises, favorites});
+}
+
+module.exports.muscleAdminIndex = async(req, res) => {
+    var { muscle } = req.params;
+    var allExercises = await Exercise.find({'muscle': { $regex: muscle, $options: 'i'}});
+    if (allExercises.length == 0) {
+        req.flash('error', "There are no exercises related to this muscle type!");
+        return res.redirect(`/exercises/admin/index`);
+    }
+    res.render('exercises/adminIndex', { allExercises });
+}

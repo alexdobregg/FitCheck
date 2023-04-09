@@ -9,17 +9,23 @@ router.route('/exercises/new')
     .post(isLoggedIn, isAdmin, catchAsync(exercises.createExercise));
 
 router.route('/exercises/index')
-    .get(isLoggedIn, exercises.index);
+    .get(isLoggedIn, catchAsync(exercises.index));
 
 router.route('/exercises/admin/index')
-    .get(isLoggedIn, isAdmin, exercises.adminIndex);
+    .get(isLoggedIn, isAdmin, catchAsync(exercises.adminIndex));
 
 router.route('/exercises/favorites/index')
-    .get(isLoggedIn, exercises.favoriteIndex);
+    .get(isLoggedIn, catchAsync(exercises.favoriteIndex));
 
 router.route('/exercises/:id')
     .get(isLoggedIn, isAdmin, catchAsync(exercises.renderEdit))
     .put(isLoggedIn, isAdmin, catchAsync(exercises.editExercise))
     .delete(isLoggedIn, isAdmin, catchAsync(exercises.deleteExercise));
+
+router.route('/exercises/index/:muscle')
+    .get(isLoggedIn, catchAsync(exercises.muscleIndex));
+
+router.route('/exercises/admin/index/:muscle')
+    .get(isLoggedIn, isAdmin, catchAsync(exercises.muscleAdminIndex));
 
 module.exports = router;

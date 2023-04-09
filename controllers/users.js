@@ -91,6 +91,14 @@ module.exports.editUser = async(req, res) => {
 
 module.exports.deleteUser = async(req, res) => {
     const { id } = req.params;
+    const allUsers = await User.find({});
+    for (let user of allUsers) {
+        var idx = user.friends.findIndex(fr => fr.toString() === id);
+        if (idx != -1) {
+            user.friends.splice(idx, 1);
+        }
+        await User.findByIdAndUpdate(user.id, { ...user });
+    }
     await User.findByIdAndDelete(id);
     req.flash('success', 'Successfully deleted the user!')
     res.redirect('/users/admin/index');
@@ -98,7 +106,7 @@ module.exports.deleteUser = async(req, res) => {
 
 module.exports.addFavoriteExercise = async(req, res) => {
     var currentUser = req.user;
-    var exerciseId = req.originalUrl.split(/[/?]+/)[4];
+    var exerciseId = req.params.idEx;
     const exercise = await Exercise.findById(exerciseId);
     var idx = currentUser.exercises.findIndex(ex => ex.toString() === exerciseId);
     if (idx == -1) {
@@ -111,7 +119,7 @@ module.exports.addFavoriteExercise = async(req, res) => {
 
 module.exports.addFavoriteRecipe = async(req, res) => {
     var currentUser = req.user;
-    var recipeId = req.originalUrl.split(/[/?]+/)[4];
+    var recipeId = req.params.idRec;
     const recipe = await Recipe.findById(recipeId);
     var idx = currentUser.recipes.findIndex(ex => ex.toString() === recipeId);
     if (idx == -1) {
@@ -121,3 +129,43 @@ module.exports.addFavoriteRecipe = async(req, res) => {
     }
     await User.findByIdAndUpdate(currentUser.id, { ...currentUser });
 };
+
+module.exports.followFriend = async(req, res) => {
+    var currentUser = req.user;
+    var friendId = req.params.idFriend;
+    var idx = currentUser.friends.findIndex(fr => fr.toString() === friendId);
+    if (idx == -1) {
+        const friend = await User.findById(friendId);
+        currentUser.friends.push(friend);
+    } else {
+        currentUser.friends.splice(idx, 1);
+    }
+    await User.findByIdAndUpdate(currentUser.id, { ...currentUser });
+};
+
+module.exports.friendsIndex = async(req, res) => {
+    const users = await User.find({});
+    const allUsers = users.filter(user => user.id !== req.user.id);
+    res.render('users/friendsIndex', { allUsers });
+}
+
+module.exports.friendIndex = async(req, res) => {
+    var { name } = req.params;
+    var users = await User.find({'name': { $regex: name, $options: 'i'}});
+    const allUsers = users.filter(user => user.id !== req.user.id);
+    if (allUsers.length == 0) {
+        req.flash('error', "There are no users with this name!");
+        return res.redirect(`/users/friends/index`);
+    }
+    res.render('users/friendsIndex', { allUsers });
+}
+
+module.exports.nameAdminIndex = async(req, res) => {
+    var { name } = req.params;
+    var allUsers = await User.find({'name': { $regex: name, $options: 'i'}});
+    if (allUsers.length == 0) {
+        req.flash('error', "There are no users with this name!");
+        return res.redirect(`/users/admin/index`);
+    }
+    res.render('users/adminIndex', { allUsers });
+}
