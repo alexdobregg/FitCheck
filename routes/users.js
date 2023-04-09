@@ -3,7 +3,7 @@ const router = express.Router();
 const users = require('../controllers/users');
 const passport = require('passport');
 const catchAsync = require('../utils/catchAsync');
-const {isLoggedIn, isAdmin} = require('../middleware');
+const {isLoggedIn, isAdmin, isPremium} = require('../middleware');
 
 router.route('/register')
     .get(users.renderRegister)
@@ -31,7 +31,18 @@ router.route('/users/:id/addFavoriteExercise/:idEx')
 router.route('/users/:id/addFavoriteRecipe/:idRec')
     .put(isLoggedIn, catchAsync(users.addFavoriteRecipe));
 
+router.route('/users/:id/followFriend/:idFriend')
+    .put(isLoggedIn, isPremium, catchAsync(users.followFriend));
 
+router.route('/users/friends/index')    
+    .get(isLoggedIn, isPremium, catchAsync(users.friendsIndex));
+
+router.route('/users/friends/index/:name')
+    .get(isLoggedIn, isPremium, catchAsync(users.friendIndex));
+
+router.route('/users/admin/index/:name')
+    .get(isLoggedIn, isAdmin, catchAsync(users.nameAdminIndex));
+    
 router.get('/logout', users.logout);
 
 module.exports = router;
