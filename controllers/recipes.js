@@ -19,7 +19,7 @@ module.exports.index = async(req, res) => {
 };
 
 module.exports.favoriteIndex = async(req, res) => {
-    var allRecipes = await Recipe.find({ '_id': { $in: req.user.recipes.map(ex => ex.toString())}});
+    var allRecipes = await Recipe.find({ '_id': { $in: req.user.recipes.map(rec => rec.toString())}});
     var favorites = true;
     res.render('recipes/index', { allRecipes, favorites });
 };

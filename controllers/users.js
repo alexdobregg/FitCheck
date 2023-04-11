@@ -169,3 +169,19 @@ module.exports.nameAdminIndex = async(req, res) => {
     }
     res.render('users/adminIndex', { allUsers });
 }
+
+module.exports.followingIndex = async(req, res) => {
+    var users = await User.find({ '_id': { $in: req.user.friends.map(friend => friend.toString())}});
+    var allUsers = [];
+    for (let user of users) {
+        var aUser = {}
+        aUser.name = user.name;
+        aUser.email = user.email;
+        aUser.height = user.height;
+        aUser.weight = user.weight;
+        aUser.exercises = await Exercise.find({ '_id': { $in: user.exercises.map(ex => ex.toString())}});
+        aUser.recipes = await Recipe.find({ '_id': { $in: user.recipes.map(rec => rec.toString())}});
+        allUsers.push(aUser);
+    }
+    res.render('users/following', { allUsers });
+}

@@ -20,6 +20,12 @@ router.route('/profile')
 router.route('/users/admin/index')
     .get(isLoggedIn, isAdmin, users.adminIndex);
 
+router.route('/users/friends/index')    
+    .get(isLoggedIn, isPremium, catchAsync(users.friendsIndex));
+
+router.route('/users/following')
+    .get(isLoggedIn, isPremium, catchAsync(users.followingIndex));
+
 router.route('/users/:id')
     .get(isLoggedIn, isAdmin, catchAsync(users.renderEdit))
     .put(isLoggedIn, isAdmin, catchAsync(users.editUser))
@@ -33,9 +39,6 @@ router.route('/users/:id/addFavoriteRecipe/:idRec')
 
 router.route('/users/:id/followFriend/:idFriend')
     .put(isLoggedIn, isPremium, catchAsync(users.followFriend));
-
-router.route('/users/friends/index')    
-    .get(isLoggedIn, isPremium, catchAsync(users.friendsIndex));
 
 router.route('/users/friends/index/:name')
     .get(isLoggedIn, isPremium, catchAsync(users.friendIndex));

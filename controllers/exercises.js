@@ -70,7 +70,7 @@ module.exports.favoriteIndex = async(req, res) => {
 
 module.exports.muscleIndex = async(req, res) => {
     var { muscle } = req.params;
-        var allExercises = await Exercise.find({'muscle': { $regex: muscle, $options: 'i'}});
+    var allExercises = await Exercise.find({'muscle': { $regex: muscle, $options: 'i'}});
     var favorites = false;
     if (allExercises.length == 0) {
         req.flash('error', "There are no exercises related to this muscle type!");

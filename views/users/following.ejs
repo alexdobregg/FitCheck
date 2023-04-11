@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate')%>
+<% for (let [index, user] of allUsers.entries()) { %>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 25rem;">
+            <div class="card-body" style="width: 100%">
+                <h5 class="card-title text-center">
+                    <%= user.name %>
+                </h5>
+                <div class="row mb-3 text-center">
+                    <div class="card-text">
+                        Email: <%= user.email %>
+                    </div>
+                    <div class="card-text">
+                        Height: <%= user.height + " cm" %>
+                    </div>
+                    <div class="card-text">
+                        Weight: <%= user.weight + " kg" %>
+                    </div>
+                </div>
+                <div class="accordion mb-3" id="accordionFavorites">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseExercises<%= index %>" aria-expanded="false" aria-controls="collapseExercises<%= index %>" onclick="funct()">
+                                Favorite Exercises
+                            </button>
+                        </h2>
+                        <div id="collapseExercises<%= index %>" class="accordion-collapse collapse">
+                            <ul class="accordion-body">
+                                <% for (let exercise of user.exercises) { %>
+                                    <li>
+                                        <%= exercise.name + ' - ' + exercise.muscle %>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseRecipes<%= index %>" aria-expanded="false" aria-controls="collapseRecipes<%= index %>">
+                                Favorite Recipes
+                            </button>
+                        </h2>
+                        <div id="collapseRecipes<%= index %>" class="accordion-collapse collapse">
+                            <ul class="accordion-body">
+                                <% for (let recipe of user.recipes) { %>
+                                    <li>
+                                        <%= recipe.name + ' - ' + recipe.ingredients.map(ingredient => ingredient.name).join(', ') %>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>

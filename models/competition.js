@@ -1,8 +1,13 @@
+const { boolean } = require('joi');
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const competitionSchema = new Schema({
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    active: {
+        type: Boolean,
+        default: true
+    },
     end_date: Date, 
     information: String,
     winner: {type: Schema.Types.ObjectId, ref: 'User'},

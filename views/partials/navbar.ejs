@@ -25,16 +25,13 @@
                             <li><a class="dropdown-item text-white" href="/recipes/favorites/index">My recipes</a></li>
                         </ul>
                     </div>
-                    <a class="nav-link text-white" href="/">Competition</a>
+                    <a class="nav-link text-white" href="/competitions/index">Competition</a>
                     <% if(currentUser.role === 'premium' || currentUser.role === 'admin') { %>
                         <a class="nav-link text-white" href="/users/friends/index">Find a friend</a>
+                        <a class="nav-link text-white" href="/users/following">Following</a>
                     <% } else { %>
                         <a class="nav-link text-white-50 disabled" href="/">&#128274;Find a friend</a>
-                    <% } %>
-                    <% if(currentUser.role === 'premium' || currentUser.role === 'admin') { %>
-                        <a class="nav-link text-white" href="/">Feed</a>
-                    <% } else { %>
-                        <a class="nav-link text-white-50 disabled" href="/">&#128274;Feed</a>
+                        <a class="nav-link text-white-50 disabled" href="/">&#128274;Following</a>
                     <% } %>
                 </div>
                 <div class="navbar-nav ms-auto me-3">

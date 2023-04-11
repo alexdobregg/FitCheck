@@ -8,4 +8,6 @@ router.route('/competitions/new')
     .get(isLoggedIn, isAdmin, competitions.renderNew)
     .post(isLoggedIn, isAdmin, catchAsync(competitions.createCompetition));
 
+router.route('/competitions/index')
+    .get(isLoggedIn, catchAsync(competitions.index));
 module.exports = router;
