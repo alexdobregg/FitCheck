@@ -1,8 +1,13 @@
 (() => {
     var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
+    var ddS = String(today.getDate() + 3).padStart(2, '0');
+    var ddE = String(today.getDate() + 4).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0');
     var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
-    end_date.min = today;
+    startDate = yyyy + '-' + mm + '-' + ddS;
+    minDate = yyyy + '-' + mm + '-' + ddE;
+
+    start_date.value = startDate;
+    end_date.min = minDate;
+    
 })()

@@ -1,0 +1,38 @@
+<% layout('layouts/boilerplate')%>
+<% for (let competition of allCompetitions) { %>
+<div class="row">
+    <div class="container d-flex justify-content-center align-items-center card mb-4" style="width: 30rem;">
+        <div class="card-body" style="width: 100%">
+            <div class="row">
+                <div class="mb-3">
+                    <label class="form-label" for="start_date">Start Date</label>
+                    <input class="form-control" type="date" id="start_date" name="competition[start_date]"
+                    value="<%= `${competition.start_date.getFullYear()}-${String(competition.start_date.getMonth() + 1).padStart(2, '0')}-${String(competition.start_date.getDate()).padStart(2, '0')}` %>" disabled>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="end_date">End Date</label>
+                    <input class="form-control" type="date" id="end_date" name="competition[end_date]"
+                    value="<%= `${competition.end_date.getFullYear()}-${String(competition.end_date.getMonth() + 1).padStart(2, '0')}-${String(competition.end_date.getDate()).padStart(2, '0')}` %>" disabled>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="information">Information</label>
+                    <textarea class="form-control" id="information" name="competition[information]" disabled><%= competition.information %></textarea>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="prize">Prize</label>
+                    <input class="form-control" type="text" id="prize" name="competition[prize]" value="<%= competition.prize %>" disabled>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <a class="btn btn-primary btn-block" role="button" href="/competitions/<%= competition.id %>">Edit</a>
+            </div>
+            <form class="col" action="/competitions/<%= competition.id %>?_method=DELETE" method="POST">
+                <button class="btn btn-danger btn-block">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+<% } %>

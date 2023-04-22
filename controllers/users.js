@@ -11,7 +11,7 @@ module.exports.renderLogin = (req, res) => {
 };
 
 module.exports.renderProfile = (req, res) => {
-    var genders = ['male', 'female', 'other'];
+    var genders = ['Male', 'Female', 'Other'];
     genders.splice(genders.findIndex(gender => gender == req.user.gender), 1)
     genders.unshift(req.user.gender);
     res.render('users/profile', {genders});
@@ -24,10 +24,10 @@ module.exports.renderEdit = async (req, res) => {
         req.flash('error', 'Cannot find that user!');
         return res.redirect('/users/admin/index');
     }
-    var genders = ['male', 'female', 'other'];
+    var genders = ['Male', 'Female', 'Other'];
     genders.splice(genders.findIndex(gender => gender == user.gender), 1)
     genders.unshift(user.gender);
-    var roles = ['basic', 'premium', 'admin'];
+    var roles = ['Basic', 'Premium', 'Admin'];
     roles.splice(roles.findIndex(role => role == user.role), 1);
     roles.unshift(user.role);
     res.render('users/edit', { user, genders, roles });
@@ -177,6 +177,7 @@ module.exports.followingIndex = async(req, res) => {
         var aUser = {}
         aUser.name = user.name;
         aUser.email = user.email;
+        aUser.gender = user.gender;
         aUser.height = user.height;
         aUser.weight = user.weight;
         aUser.exercises = await Exercise.find({ '_id': { $in: user.exercises.map(ex => ex.toString())}});

@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const competitionSchema = new Schema({
-    users: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    participants: [{type: Schema.Types.ObjectId, ref: 'User'}],
     active: {
         type: Boolean,
         default: true
     },
+    start_date: Date,
     end_date: Date, 
     information: String,
     winner: {type: Schema.Types.ObjectId, ref: 'User'},

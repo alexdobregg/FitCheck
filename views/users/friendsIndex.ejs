@@ -16,6 +16,9 @@
                         Email: <%= user.email %>
                     </div>
                     <div class="card-text">
+                        Gender: <%= user.gender %>
+                    </div>
+                    <div class="card-text">
                         Height: <%= user.height + " cm" %>
                     </div>
                     <div class="card-text">
@@ -41,7 +44,6 @@
 <script>
     document.querySelectorAll('.follow').forEach(element => {
         element.addEventListener('click', async function(e) {
-            const url='/profile';
             if (e.target.classList.contains('btn-primary')) {
                 e.target.classList.remove('btn-primary');
                 e.target.classList.add('btn-secondary');

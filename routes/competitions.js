@@ -10,4 +10,16 @@ router.route('/competitions/new')
 
 router.route('/competitions/index')
     .get(isLoggedIn, catchAsync(competitions.index));
+
+router.route('/competitions/admin/index')
+    .get(isLoggedIn, catchAsync(competitions.adminIndex));
+
+router.route('/competitions/register')
+    .get(isLoggedIn, catchAsync(competitions.register));
+
+router.route('/competitions/:id')
+    .get(isLoggedIn, isAdmin, catchAsync(competitions.renderEdit))
+    .put(isLoggedIn, isAdmin, catchAsync(competitions.editCompetition))
+    .delete(isLoggedIn, isAdmin, catchAsync(competitions.deleteCompetition));
+
 module.exports = router;

@@ -18,7 +18,7 @@
                             <label class="form-label" for="gender">Gender</label>
                             <select class="form-control select" id="gender" name="currentUser[gender]" required>
                                 <% for (let gender of genders) { %>
-                                    <option value="<%= gender %>"><%= gender.charAt(0).toUpperCase() + gender.slice(1)%></option>
+                                    <option value="<%= gender %>"><%= gender %></option>
                                 <% } %>
                             </select>
                         </div>

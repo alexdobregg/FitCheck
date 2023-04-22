@@ -6,6 +6,10 @@
                 <h5>New competition</h5>
                 <form action="/competitions/new" method="POST" class="validated-form" novalidate>
                     <div class="mb-3">
+                        <label class="form-label" for="start_date">Start Date</label>
+                        <input class="form-control" type="date" id="start_date" name="competition[start_date]" readonly onclick='return false;'>    
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label" for="end_date">End Date</label>
                         <input class="form-control" type="date" id="end_date" name="competition[end_date]" required autofocus>
                     </div>

@@ -14,7 +14,7 @@
                             <label class="form-label" for="role">Role</label>
                             <select class="form-control select" id="role" name="user[role]" required>
                                 <% for (let role of roles) { %>
-                                    <option value="<%= role %>"><%= role.charAt(0).toUpperCase() + role.slice(1)%></option>
+                                    <option value="<%= role %>"><%= role %></option>
                                 <% } %>
                             </select>
                         </div>
@@ -29,7 +29,7 @@
                             <label class="form-label" for="gender">Gender</label>
                             <select class="form-control select" id="gender" name="user[gender]" required>
                                 <% for (let gender of genders) { %>
-                                    <option value="<%= gender %>"><%= gender.charAt(0).toUpperCase() + gender.slice(1)%></option>
+                                    <option value="<%= gender %>"><%= gender %></option>
                                 <% } %>
                             </select>
                         </div>

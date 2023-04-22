@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     <a class="nav-link text-white" href="/competitions/index">Competition</a>
-                    <% if(currentUser.role === 'premium' || currentUser.role === 'admin') { %>
+                    <% if(currentUser.role === 'Premium' || currentUser.role === 'Admin') { %>
                         <a class="nav-link text-white" href="/users/friends/index">Find a friend</a>
                         <a class="nav-link text-white" href="/users/following">Following</a>
                     <% } else { %>
@@ -35,7 +35,7 @@
                     <% } %>
                 </div>
                 <div class="navbar-nav ms-auto me-3">
-                    <% if(currentUser.role === 'admin') { %>
+                    <% if(currentUser.role === 'Admin') { %>
                         <div class="dropdown">
                             <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Admin panel
@@ -44,6 +44,7 @@
                                 <li><a class="dropdown-item" href="/users/admin/index">All users</a></li>
                                 <li><a class="dropdown-item" href="/exercises/admin/index">All exercises</a></li>
                                 <li><a class="dropdown-item" href="/recipes/admin/index">All recipes</a></li>
+                                <li><a class="dropdown-item" href="/competitions/admin/index">All competitions</a></li>
                                 <li><a class="dropdown-item" href="/competitions/new">New competition</a></li>
                                 <li><a class="dropdown-item" href="/exercises/new">New exercise</a></li>
                                 <li><a class="dropdown-item" href="/recipes/new">New recipe</a></li>
