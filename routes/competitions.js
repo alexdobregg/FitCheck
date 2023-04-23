@@ -17,6 +17,9 @@ router.route('/competitions/admin/index')
 router.route('/competitions/register')
     .get(isLoggedIn, catchAsync(competitions.register));
 
+router.route('/competitions/deactivate/:id')
+    .put(isLoggedIn, isAdmin, catchAsync(competitions.deactivateCompetition));
+
 router.route('/competitions/:id')
     .get(isLoggedIn, isAdmin, catchAsync(competitions.renderEdit))
     .put(isLoggedIn, isAdmin, catchAsync(competitions.editCompetition))

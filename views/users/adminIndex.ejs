@@ -21,10 +21,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md mb-3 text-center">
+                <div class="col mb-3">
                     <a class="btn btn-primary btn-block" role="button" href="/users/<%=user._id%>">Edit</a>
                 </div>
-                <form class="col-md mb-3 text-center" action="/users/<%=user.id%>?_method=DELETE" method="POST">
+                <form class="col mb-3" action="/users/<%=user.id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger btn-block">Delete</button>
                 </form>
             </div>

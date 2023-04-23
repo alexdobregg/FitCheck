@@ -19,7 +19,11 @@ const userSchema = new Schema({
     },
     friends: [{type: Schema.Types.ObjectId, ref: 'User'}],
     recipes: [{type: Schema.Types.ObjectId, ref: 'Recipe'}],
-    exercises: [{type: Schema.Types.ObjectId, ref: 'Exercise'}]
+    exercises: [{type: Schema.Types.ObjectId, ref: 'Exercise'}],
+    competitionStats: [{
+        competitionId: String,
+        caloriesBurned: Number
+    }]
 });
 
 userSchema.plugin(passportLocalMongoose);

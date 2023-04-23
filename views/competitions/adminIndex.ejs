@@ -4,6 +4,11 @@
     <div class="container d-flex justify-content-center align-items-center card mb-4" style="width: 30rem;">
         <div class="card-body" style="width: 100%">
             <div class="row">
+                <% if (competition.active == true) { %>
+                    <h5>Status: Active</h5>
+                <% } else { %>
+                    <h5>Status: Inactive</h5>
+                <% } %>
                 <div class="mb-3">
                     <label class="form-label" for="start_date">Start Date</label>
                     <input class="form-control" type="date" id="start_date" name="competition[start_date]"
@@ -32,6 +37,11 @@
             <form class="col" action="/competitions/<%= competition.id %>?_method=DELETE" method="POST">
                 <button class="btn btn-danger btn-block">Delete</button>
             </form>
+            <% if (competition.active == true) { %>
+            <form class="col" action="/competitions/deactivate/<%= competition.id %>?_method=PUT" method="POST">
+                <button class="btn btn-secondary btn-block">Deactivate</button>
+            </form>
+            <% } %>
         </div>
     </div>
 </div>
