@@ -20,12 +20,21 @@ module.exports.createCompetition = async(req, res) => {
 module.exports.index = async(req, res) => {
     const competition = await Competition.findOne({active: true});
     if (competition) {
-        var participants = await User.find({ '_id': { $in: competition.participants.map(participant => participant.toString())}});
+        var allParticipants = [];
+        for (let participant of competition.participants) {
+            allParticipants.push(participant.user);
+        }
+        var auxParticipants = await User.find({ '_id': { $in: allParticipants.map(participant => participant.toString())}});
+        var participants = [];
+        for (let participant of competition.participants) {
+            var userIdx = auxParticipants.findIndex(particip => particip.id == participant.user.toString());
+            participants.push({user: auxParticipants[userIdx], caloriesBurned: participant.caloriesBurned});
+        }
         participants = participants.sort((a, b) => {
-            if (a.name < b.name) {
+            if (a.user.name < b.user.name) {
                 return -1;
             }
-        });
+        })
     }
     res.render('competitions/index', { competition, participants });
 }
@@ -42,9 +51,9 @@ module.exports.adminIndex = async(req, res) => {
 
 module.exports.register = async(req, res) => {
     const competition = await Competition.findOne({active: true});
-    var idx = competition.participants.findIndex(participant => participant.toString() === req.user.id);
+    var idx = competition.participants.findIndex(participant => participant.user.toString() === req.user.id);
     if (idx == -1) {
-        competition.participants.push(req.user);
+        competition.participants.push({user: req.user, caloriesBurned: 0});
     } else {
         competition.participants.splice(idx, 1);
     }

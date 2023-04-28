@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const competitionSchema = new Schema({
-    participants: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    participants: [{
+        user: {type: Schema.Types.ObjectId, ref: 'User'},
+        caloriesBurned: Number
+    }],
     active: {
         type: Boolean,
         default: true

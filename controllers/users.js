@@ -84,7 +84,11 @@ module.exports.adminIndex = async (req, res) => {
 
 module.exports.editUser = async(req, res) => {
     const { id } = req.params;
-    await User.findByIdAndUpdate(id, { ...req.body.user });
+    var user = req.body.user;
+    if (user.role == 'Basic') {
+        user.friends = [];
+    }
+    await User.findByIdAndUpdate(id, { ...user });
     req.flash('success', 'Successfully updated the user!');
     res.redirect(`/users/${id}`);
 };

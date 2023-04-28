@@ -11,7 +11,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="end_date">End Date</label>
-                        <input class="form-control" type="date" id="end_date" name="competition[end_date]"
+                        <input class="form-control" type="date" id="end_date" name="competition[end_date]" min="<%= `${competition.start_date.getFullYear()}-${String(competition.start_date.getMonth() + 1).padStart(2, '0')}-${String(competition.start_date.getDate()).padStart(2, '0')}` %>"
                         value="<%= `${competition.end_date.getFullYear()}-${String(competition.end_date.getMonth() + 1).padStart(2, '0')}-${String(competition.end_date.getDate()).padStart(2, '0')}` %>">
                     </div>
                     <div class="mb-3">
@@ -31,5 +31,3 @@
         </div>
     </div>
 </div>
-
-<script src="/javascripts/minDate.js"></script>
