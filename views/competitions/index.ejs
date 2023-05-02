@@ -64,7 +64,28 @@
             <div class="col">
                 <% if (competition.start_date <= new Date() && new Date() <= competition.end_date) { %>
                     <% if (participants.find(participant => participant.user.id === currentUser.id)) { %>
-                        <a class="btn btn-success btn-block" href="/competitions/admin/index">Add calories</a>
+                        <button type="button" class="btn btn-primary" style="width:106%" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add calories</button>
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Add the calories you burned today</h1>
+                                    </div>
+                                    <form action="/competitions/<%= competition.id %>/addCalories?_method=PUT" method="POST">
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="calories_burned">Calories burned</label>
+                                                <input class="form-control" type="number" id="calories_burned" name="calories_burned" max="5000">    
+                                            </div>
+                                            <div class="mb-3 text-center">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearCalories()">Close</button>
+                                                <button type="submit" class="btn btn-primary">Add</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     <% } %>
                 <% } %>
             </div>
@@ -72,3 +93,9 @@
     </div>
 </div>
 <% } %>
+
+<script>
+    clearCalories = () => {
+        document.getElementById('calories_burned').value = '';
+    }
+</script>

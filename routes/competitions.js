@@ -25,4 +25,7 @@ router.route('/competitions/:id')
     .put(isLoggedIn, isAdmin, catchAsync(competitions.editCompetition))
     .delete(isLoggedIn, isAdmin, catchAsync(competitions.deleteCompetition));
 
+router.route('/competitions/:id/addCalories')
+    .put(isLoggedIn, catchAsync(competitions.addCalories));
+
 module.exports = router;

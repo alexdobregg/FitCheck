@@ -92,3 +92,13 @@ module.exports.deactivateCompetition = async(req, res) => {
     req.flash('success', 'Successfully deactivated the competition!');
     res.redirect('/competitions/admin/index');
 };
+
+module.exports.addCalories = async(req, res) => {
+    const {id} = req.params;
+    const competition = await Competition.findById(id);
+    var idx = competition.participants.findIndex(participant => participant.user.toString() === req.user.id);
+    competition.participants[idx].caloriesBurned += parseInt(req.body.calories_burned);
+    await competition.save();
+    req.flash('success', 'Successfully added the calories!');
+    res.redirect('/competitions/index');
+};
