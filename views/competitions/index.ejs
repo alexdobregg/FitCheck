@@ -15,6 +15,10 @@
                     value="<%= `${competition.end_date.getFullYear()}-${String(competition.end_date.getMonth() + 1).padStart(2, '0')}-${String(competition.end_date.getDate()).padStart(2, '0')}` %>" disabled>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="type">Type</label>
+                    <input class="form-control" type="text" id="type" name="competition[type]" value="<%= competition.type %>" disabled>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="information">Information</label>
                     <textarea class="form-control" id="information" name="competition[information]" disabled><%= competition.information %></textarea>
                 </div>
@@ -33,9 +37,15 @@
                         <div id="collapseExercises" class="accordion-collapse collapse">
                             <ul class="accordion-body">
                                 <% for (let participant of participants) { %>
-                                    <li>
-                                        <%= participant.user.name + ' - ' + participant.user.gender + ', ' + participant.user.weight + 'kg, ' + participant.user.height + 'cm, ' + participant.caloriesBurned + ' calories burned.' %>
-                                    </li>
+                                    <% if (competition.type != 'Marathon') { %>
+                                        <li>
+                                            <%= participant.user.name + ' - ' + participant.user.gender + ', ' + participant.user.weight + 'kg, ' + participant.user.height + 'cm, ' + participant.caloriesBurned + ' calories burned.' %>
+                                        </li>
+                                    <% } else { %>
+                                        <li>
+                                            <%= participant.user.name + ' - ' + participant.user.gender + ', ' + participant.user.weight + 'kg, ' + participant.user.height + 'cm'%>
+                                        </li>
+                                    <% } %>
                                 <% } %>
                             </ul>
                         </div>
@@ -62,7 +72,7 @@
                 <% } %>
             </div>
             <div class="col">
-                <% if (competition.start_date <= new Date() && new Date() <= competition.end_date) { %>
+                <% if (competition.start_date <= new Date() && new Date() <= competition.end_date && competition.type != 'Marathon') { %>
                     <% if (participants.find(participant => participant.user.id === currentUser.id)) { %>
                         <button type="button" class="btn btn-primary" style="width:106%" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add calories</button>
                         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -4,7 +4,7 @@ const {Schema} = mongoose;
 const exerciseSchema = new Schema({
     name: String,
     muscle: String,
-    // image: String,
+    image: String,
     instructions: String
 });
 

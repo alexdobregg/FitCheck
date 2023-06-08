@@ -11,6 +11,7 @@ module.exports.createCompetition = async(req, res) => {
         req.flash('error', 'There is another active competition!');
         return res.redirect('/competitions/new');
     }
+    req.body.competition.end_date = new Date(`${req.body.competition.end_date}T23:59:59.000Z`)
     const competition = new Competition(req.body.competition);
     await competition.save();
     req.flash('success', 'Successfully created a new competition!');
@@ -76,7 +77,26 @@ module.exports.renderEdit = async (req, res) => {
         req.flash('error', 'Cannot find that competition!');
         return res.redirect('/competitions/admin/index');
     }
-    res.render('competitions/edit', { competition });
+    var allParticipants = [];
+    for (let participant of competition.participants) {
+        allParticipants.push(participant.user);
+    }
+    var auxParticipants = await User.find({ '_id': { $in: allParticipants.map(participant => participant.toString())}});
+    var participants = [];
+    for (let participant of competition.participants) {
+        var userIdx = auxParticipants.findIndex(particip => particip.id == participant.user.toString());
+        participants.push({user: auxParticipants[userIdx], caloriesBurned: participant.caloriesBurned});
+    }
+    participants = participants.sort((a, b) => {
+        if (a.caloriesBurned > b.caloriesBurned) {
+            return -1;
+        }
+    })
+    var types = ['Burning Calories', 'Marathon'];
+    var typeIdx = types.findIndex(type => type == competition.type)
+    types.splice(typeIdx, 1);
+    types.unshift(competition.type);
+    res.render('competitions/edit', { competition, participants, types });
 };
 
 module.exports.editCompetition = async(req, res) => {

@@ -1,4 +1,6 @@
-module.exports.exercises = [
+const Exercise = require('../models/exercise');
+
+exercises = [
     {
         "name": "Landmine twist",
         "muscle": "Abdominals",
@@ -550,3 +552,31 @@ module.exports.exercises = [
         "instructions": "Sit on a flat bench with a dumbbell in your right hand. Place your feet flat on the floor, at a distance that is slightly wider than shoulder width apart. Lean forward and place your right forearm on top of your upper right thigh with your palm up. Tip: Make sure that the front of the wrist lies on top of your knees. This will be your starting position. Lower the dumbbell as far as possible as you keep a tight grip on the dumbbell. Inhale as you perform this movement. Now curl the dumbbell as high as possible as you contract the forearms and as you exhale. Keep the contraction for a second before you lower again. Tip: The only movement should happen at the wrist. Perform for the recommended amount of repetitions, switch arms and repeat the movement.  Variations: You can also do this movement with two arms at a time, one on each knee, or using a barbell."
     }
 ]
+
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
+mongoose.connect('mongodb://127.0.0.1:27017/fit-check');
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Connection error.'));
+db.once('open', () => {
+    console.log('Database connected.')
+})
+
+const seedDB = async () => {
+    await Exercise.deleteMany({});
+    
+    var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms'];
+    var musclesPhoto = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms']
+    for (let i = 0; i < exercises.length; i++) {
+        var ex = exercises[i];
+        var muscleIdx = muscles.findIndex(muscle => muscle == ex.muscle)
+        ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.png';
+        const exercise = new Exercise(ex);
+        await exercise.save();
+    }
+}
+
+seedDB().then(() => {
+    mongoose.connection.close();
+})

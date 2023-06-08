@@ -15,12 +15,45 @@
                         value="<%= `${competition.end_date.getFullYear()}-${String(competition.end_date.getMonth() + 1).padStart(2, '0')}-${String(competition.end_date.getDate()).padStart(2, '0')}` %>">
                     </div>
                     <div class="mb-3">
+                        <label class="form-label" for="type">Type</label>
+                        <select class="form-control select" id="type" name="competition[type]" required>
+                            <% for (let [index, type] of types.entries()) { %>
+                                <option value="<%= type %>"><%= type %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label" for="information">Information</label>
                         <textarea class="form-control" id="information" name="competition[information]"><%= competition.information %></textarea>
                     </div>
                     <div class="mb-4">
                         <label class="form-label" for="prize">Prize</label>
                         <input class="form-control" type="text" id="prize" name="competition[prize]" value="<%= competition.prize %>">
+                    </div>
+                </div>
+                <div class="accordion mb-3" id="accordionFavorites">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseExercises" aria-expanded="false" aria-controls="collapseExercises">
+                                Participants
+                            </button>
+                        </h2>
+                        <div id="collapseExercises" class="accordion-collapse collapse">
+                            <ul class="accordion-body">
+                                <% for (let participant of participants) { %>
+                                    <% if (competition.type != 'Marathon') { %>
+                                        <li>
+                                            <%= participant.user.name + ' - ' + participant.user.email + ', ' + participant.user.gender + ', ' + participant.user.weight + 'kg, ' + participant.user.height + 'cm, ' + participant.caloriesBurned + ' calories burned.' %>
+                                        </li>
+                                    <% } else { %>
+                                        <li>
+                                            <%= participant.user.name + ' - '+ participant.user.email + ', ' + participant.user.gender + ', ' + participant.user.weight + 'kg, ' + participant.user.height + 'cm'%>
+                                        </li>
+                                    <% } %>
+                                <% } %>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="row">

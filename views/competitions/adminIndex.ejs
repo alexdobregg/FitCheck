@@ -20,6 +20,10 @@
                     value="<%= `${competition.end_date.getFullYear()}-${String(competition.end_date.getMonth() + 1).padStart(2, '0')}-${String(competition.end_date.getDate()).padStart(2, '0')}` %>" disabled>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label" for="type">Type</label>
+                    <input class="form-control" type="text" id="type" name="competition[type]" value="<%= competition.type %>" disabled>
+                </div>
+                <div class="mb-3">
                     <label class="form-label" for="information">Information</label>
                     <textarea class="form-control" id="information" name="competition[information]" disabled><%= competition.information %></textarea>
                 </div>
@@ -28,7 +32,6 @@
                     <input class="form-control" type="text" id="prize" name="competition[prize]" value="<%= competition.prize %>" disabled>
                 </div>
             </div>
-            
         </div>
         <div class="row mb-3">
             <div class="col">

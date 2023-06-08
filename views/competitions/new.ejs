@@ -7,11 +7,19 @@
                 <form action="/competitions/new" method="POST" class="validated-form" novalidate>
                     <div class="mb-3">
                         <label class="form-label" for="start_date">Start Date</label>
-                        <input class="form-control" type="date" id="start_date" name="competition[start_date]" readonly onclick='return false;'>    
+                        <input class="form-control" type="date" id="start_date" name="competition[start_date]" required autofocus>    
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="end_date">End Date</label>
-                        <input class="form-control" type="date" id="end_date" name="competition[end_date]" required autofocus>
+                        <input class="form-control" type="date" id="end_date" name="competition[end_date]" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="type">Type</label>
+                        <select class="form-control select" id="type" name="competition[type]" required>
+                            <option value="">--None--</option>
+                            <option value="Burning Calories">Burning Calories</option>
+                            <option value="Marathon">Marathon</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="information">Information</label>
@@ -30,3 +38,11 @@
     </div>
 </div>
 <script src="/javascripts/minDate.js"></script>
+<script>
+    document.getElementById("end_date").addEventListener("change", function(e) {
+        var endDate = new Date(e.target.value);
+        endDate.setHours(23, 59, 59, 999);
+        console.log(e.target.value);
+        // e.target.value = endDate.toISOString().substring(0, 10);
+    });
+</script>

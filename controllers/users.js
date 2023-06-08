@@ -34,7 +34,6 @@ module.exports.renderEdit = async (req, res) => {
 };
 
 module.exports.login = (req, res) => {
-    req.flash('success', 'Welcome!');
     res.redirect('/');
 };
 

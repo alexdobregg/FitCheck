@@ -14,7 +14,7 @@ const competitionSchema = new Schema({
     start_date: Date,
     end_date: Date, 
     information: String,
-    winner: {type: Schema.Types.ObjectId, ref: 'User'},
+    type: String,
     prize: String
 });
 

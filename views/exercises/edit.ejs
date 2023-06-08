@@ -12,7 +12,7 @@
                         <label class="form-label" for="muscle">Muscle</label>
                         <select class="form-control select" id="muscle" name="exercise[muscle]" required>
                             <% for (let [index, muscle] of muscles.entries()) { %>
-                                <option value="<%= muscle %>"><%= musclesDisplay[index] %></option>
+                                <option value="<%= muscle %>"><%= muscle %></option>
                             <% } %>
                         </select>
                     </div>

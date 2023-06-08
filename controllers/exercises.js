@@ -12,18 +12,21 @@ module.exports.renderEdit = async (req, res) => {
         req.flash('error', 'Cannot find that exercise!');
         return res.redirect('/exercises/admin/index');
     }
-    var muscles = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms'];
-    var musclesDisplay = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms'];
+    var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms', 'Chest'];
     var muscleIdx = muscles.findIndex(muscle => muscle == exercise.muscle)
     muscles.splice(muscleIdx, 1);
-    var muscleDisplay = musclesDisplay.splice(muscleIdx, 1);
     muscles.unshift(exercise.muscle);
-    musclesDisplay.unshift(muscleDisplay);
-    res.render('exercises/edit', { exercise, muscles, musclesDisplay });
+    res.render('exercises/edit', { exercise, muscles });
 };
 
 module.exports.createExercise = async (req, res) => {
-    const exercise = new Exercise(req.body.exercise);
+    var ex = req.body.exercise;
+    var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms', 'Chest'];
+    var musclesPhoto = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms', 'chest']
+    var muscleIdx = muscles.findIndex(muscle => muscle == ex.muscle)
+    ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.png';
+
+    const exercise = new Exercise(ex);
     await exercise.save();
     req.flash('success', 'Successfully created a new exercise!');
     res.redirect('/');
@@ -57,7 +60,12 @@ module.exports.deleteExercise = async(req, res) => {
 
 module.exports.editExercise = async(req, res) => {
     const { id } = req.params;
-    await Exercise.findByIdAndUpdate(id, { ...req.body.exercise });
+    var ex = req.body.exercise;
+    var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms', 'Chest'];
+    var musclesPhoto = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms', 'chest']
+    var muscleIdx = muscles.findIndex(muscle => muscle == ex.muscle)
+    ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.png';
+    await Exercise.findByIdAndUpdate(id, { ...ex });
     req.flash('success', 'Successfully updated the exercise!');
     res.redirect(`/exercises/${id}`);
 };
