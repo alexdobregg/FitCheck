@@ -23,7 +23,21 @@
                             <% } %>
                         </form>
                     </h5>
-                    <p class="card-text"> <%= exercise.instructions %></p>
+                    <div class="accordion mb-3" id="accordionInstructions">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseInstructions<%= exercise.id %>" aria-expanded="false" aria-controls="collapseInstructions<%= exercise.id %>">
+                                    Instructions
+                                </button>
+                            </h2>
+                            <div id="collapseInstructions<%= exercise.id %>" class="accordion-collapse collapse">
+                                <ul class="accordion-body">
+                                    <p class="card-text"> <%= exercise.instructions %></p>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,6 +12,30 @@
                         <label class="form-label" for="instructions">Instructions</label>
                         <textarea class="form-control" id="instructions" name="recipe[instructions]" required><%= recipe.instructions %></textarea>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="image">Image(name.extension)</label>
+                        <input class="form-control" id="image" name="recipe[image]" value="<%= recipe.image.substring('/images/recipes/'.length) %>" required>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="calories">Calories</label>
+                            <input class="form-control" type="number" id="calories" name="recipe[calories]" value="<%= recipe.calories %>" required>
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="protein">Protein(g)</label>
+                            <input class="form-control" type="number" id="protein" name="recipe[protein]" value="<%= recipe.protein %>" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="fat">Fat(g)</label>
+                            <input class="form-control" type="number" id="fat" name="recipe[fat]" value="<%= recipe.fat %>" required>
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="carbs">Carbs(g)</label>
+                            <input class="form-control" type="number" id="carbs" name="recipe[carbs]" value="<%= recipe.carbs %>" required>
+                        </div>
+                    </div>
                     <div class="row mb-3">
                         <div class="col-5">
                             <h4>Ingredients</h4>
@@ -32,7 +56,7 @@
                                 </div>
                                 <div class="col-3">
                                     <label class="form-label" for="quantity<%= index %>">Quantity</label>
-                                    <input class="form-control" type="text" id="quantity<%= index %>" name="recipe[ingredients][<%= index %>][quantity]" value="<%= ingredient.quantity %>" required>
+                                    <input class="form-control" type="number" id="quantity<%= index %>" name="recipe[ingredients][<%= index %>][quantity]" value="<%= ingredient.quantity %>" required>
                                 </div>
                                 <div class="col-3">
                                     <label class="form-label" for="unit<%= index %>">Unit</label>

@@ -3,7 +3,11 @@ const {Schema} = mongoose;
 
 const recipeSchema = new Schema({
     name: String,
-    // image: String,
+    image: String,
+    calories: Number,
+    fat: Number,
+    carbs: Number,
+    protein: Number,
     instructions: String,
     ingredients: [{
         name: String,

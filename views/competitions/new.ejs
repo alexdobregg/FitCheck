@@ -38,11 +38,3 @@
     </div>
 </div>
 <script src="/javascripts/minDate.js"></script>
-<script>
-    document.getElementById("end_date").addEventListener("change", function(e) {
-        var endDate = new Date(e.target.value);
-        endDate.setHours(23, 59, 59, 999);
-        console.log(e.target.value);
-        // e.target.value = endDate.toISOString().substring(0, 10);
-    });
-</script>

@@ -7,7 +7,7 @@
                     <div class="mb-3">
                         <label class="form-label" for="start_date">Start Date</label>
                         <input class="form-control" type="date" id="start_date" name="competition[start_date]"
-                        value="<%= `${competition.start_date.getFullYear()}-${String(competition.start_date.getMonth() + 1).padStart(2, '0')}-${String(competition.start_date.getDate()).padStart(2, '0')}` %>" disabled>
+                        value="<%= `${competition.start_date.getFullYear()}-${String(competition.start_date.getMonth() + 1).padStart(2, '0')}-${String(competition.start_date.getDate()).padStart(2, '0')}` %>">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="end_date">End Date</label>
@@ -64,3 +64,5 @@
         </div>
     </div>
 </div>
+
+<script src="/javascripts/minDate.js"></script>
