@@ -3,7 +3,6 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
-const catchAsync = require(path.join(__dirname, '/utils/catchAsync'));
 const ExpressError = require(path.join(__dirname, '/utils/ExpressError'));
 const methodOverride = require('method-override');
 const User = require(path.join(__dirname, '/models/user'));
@@ -14,8 +13,6 @@ const userRoutes = require('./routes/users');
 const competitionRoutes = require('./routes/competitions');
 const exerciseRoutes = require('./routes/exercises');
 const recipeRoutes = require('./routes/recipes');
-
-const {isLoggedIn} = require('./middleware');
 
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
