@@ -7,6 +7,19 @@
         </form>
     </div>
 <% } %>
+<% if (allExercises.length == 0) { %>
+    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+        <div style="width: 50rem;">
+            <div class="text-center" style="font-size: xx-large; color:whitesmoke">
+                <% if (!favorites) { %>
+                    Currently there are no exercises.
+                <% } else { %>
+                    Currently there are no exercises added to favorites.
+                <% } %>
+            </div>
+        </div>
+    </div>
+<% } %>
 <% for (let exercise of allExercises) { %>
     <div class="row">
         <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 30rem;">
