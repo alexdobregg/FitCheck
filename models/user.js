@@ -15,7 +15,7 @@ const userSchema = new Schema({
     gender: String,
     role: {
         type: String,
-        default: 'basic'
+        default: 'Basic'
     },
     friends: [{type: Schema.Types.ObjectId, ref: 'User'}],
     recipes: [{type: Schema.Types.ObjectId, ref: 'Recipe'}],
@@ -23,7 +23,6 @@ const userSchema = new Schema({
 });
 
 userSchema.plugin(passportLocalMongoose);
-
 
 const User = mongoose.model('User', userSchema);
 

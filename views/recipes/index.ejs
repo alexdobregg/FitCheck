@@ -23,8 +23,7 @@
 <% for (let recipe of allRecipes){%>
     <div class="row">
         <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 30rem;">
-            <img class="card-img-top" style="width: 105%"
-                src="<%= recipe.image %>">
+            <img class="card-img-top" style="width: 105%; height: 65%;" alt="<%= recipe.name %>" src="<%= recipe.image %>">
             <div class="card-body" style="width: 100%">
                 <div class="row mb-3 text-center">
                     <h5 class="card-title">
@@ -33,9 +32,9 @@
                             action="/users/<%=currentUser.id%>/addFavoriteRecipe/<%=recipe.id%>?_method=PUT"
                             method="POST" target="sub" style="display: inline;">
                             <% if (currentUser.recipes.find(rec => rec.toString() === recipe.id) == undefined) { %>
-                                <button class="fa fa-star"></button>
+                                <button class="fa fa-star" aria-label="Button to save recipes to favorite"></button>
                             <% } else { %>
-                                <button class="fa fa-star star-checked"></button>
+                                <button class="fa fa-star star-checked" aria-label="Button to save recipes to favorite"></button>
                             <% } %>
                         </form>
                     </h5>

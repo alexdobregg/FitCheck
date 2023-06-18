@@ -23,16 +23,16 @@
 <% for (let exercise of allExercises) { %>
     <div class="row">
         <div class="container d-flex justify-content-center align-items-center card mb-3" style="width: 30rem;">
-            <img class="card-img-top mb-2" style="width: 105%" src=<%= exercise.image %>>
+            <img class="card-img-top mb-2" alt="<%= exercise.name %>" style="width: 80%; height: 80%;" src="<%= exercise.image %>"">
             <div class="card-body" style="width: 100%">
                 <div class="row mb-3 text-center">
                     <h5 class="card-title">
                         <%= exercise.name + " - " + exercise.muscle %>
                         <form action="/users/<%=currentUser.id%>/addFavoriteExercise/<%=exercise.id%>?_method=PUT" method="POST" target="sub" style="display: inline;">
                             <% if (currentUser.exercises.find(ex => ex.toString() === exercise.id) == undefined) { %>
-                                <button class="fa fa-star"></button>
+                                <button class="fa fa-star" aria-label="Button to save exercises to favorite"></button>
                             <% } else { %>
-                                <button class="fa fa-star star-checked"></button>
+                                <button class="fa fa-star star-checked" aria-label="Button to save exercises to favorite"></button>
                             <% } %>
                         </form>
                     </h5>

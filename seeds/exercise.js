@@ -566,12 +566,12 @@ db.once('open', () => {
 const seedDB = async () => {
     await Exercise.deleteMany({});
     
-    var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms'];
-    var musclesPhoto = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms']
+    var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms', 'Chest'];
+    var musclesPhoto = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms', 'chest'];
     for (let i = 0; i < exercises.length; i++) {
         var ex = exercises[i];
         var muscleIdx = muscles.findIndex(muscle => muscle == ex.muscle)
-        ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.png';
+        ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.webp';
         const exercise = new Exercise(ex);
         await exercise.save();
     }

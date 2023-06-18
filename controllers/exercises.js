@@ -24,7 +24,7 @@ module.exports.createExercise = async (req, res) => {
     var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms', 'Chest'];
     var musclesPhoto = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms', 'chest']
     var muscleIdx = muscles.findIndex(muscle => muscle == ex.muscle)
-    ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.png';
+    ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.webp';
 
     const exercise = new Exercise(ex);
     await exercise.save();
@@ -64,7 +64,7 @@ module.exports.editExercise = async(req, res) => {
     var muscles = ['Abdominals', 'Biceps', 'Calves', 'Lower Back', 'Middle Back', 'Triceps', 'Quadriceps', 'Traps', 'Glutes', 'Forearms', 'Chest'];
     var musclesPhoto = ['abdominals', 'biceps', 'calves', 'lower_back', 'middle_back', 'triceps', 'quadriceps', 'traps', 'glutes', 'forearms', 'chest']
     var muscleIdx = muscles.findIndex(muscle => muscle == ex.muscle)
-    ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.png';
+    ex.image = '/images/exercises/' + musclesPhoto[muscleIdx] + '.webp';
     await Exercise.findByIdAndUpdate(id, { ...ex });
     req.flash('success', 'Successfully updated the exercise!');
     res.redirect(`/exercises/${id}`);

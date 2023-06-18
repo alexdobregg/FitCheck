@@ -1,6 +1,6 @@
 body {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/images/background.png') no-repeat center center fixed; 
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('/images/background.webp') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -9,20 +9,17 @@ body {
 }
 
 .bg-img-1 {
-    background-image: url('/images/exercises.png');
+    background-image: url('/images/exercises.webp');
 }
 
 .bg-img-2 {
-    background-image: url('/images/recipes.png');
+    background-image: url('/images/recipes.webp');
 }
 
 .bg-img-3 {
-    background-image: url('/images/competition.png');
+    background-image: url('/images/competition.webp');
 }
 
-.bg-img-4 {
-    background-image: url("/images/subscription.png");
-}
 .carousel {
     border-radius: 55px 55px 55px 55px;
     overflow: hidden;

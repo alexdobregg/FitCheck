@@ -6,7 +6,7 @@ module.exports.renderNew = (req, res) => {
 };
 
 module.exports.createRecipe = async (req, res) => {
-    req.body.recipe.image = '/images/recipes/' + req.body.recipe.image;
+    req.body.recipe.image = '/images/recipes/' + req.body.recipe.image + '.webp';
     const exercise = new Recipe(req.body.recipe);
     await exercise.save();
     req.flash('success', 'Successfully created a new recipe!');

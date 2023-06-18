@@ -4,7 +4,7 @@ recipes = [
     {
         "name": "Easy Pea & Spinach Carbonara",
         "instructions": "1. Put 10 cups of water in a large pot and bring to a boil over high heat.\n2. Meanwhile, heat oil in a large skillet over medium-high heat. Add breadcrumbs and garlic; cook, stirring frequently, until toasted, about 2 minutes. Transfer to a small bowl and stir in 2 tablespoons Parmesan and parsley. Set aside.\n3. Whisk the remaining 6 tablespoons Parmesan, egg yolks, egg, pepper and salt in a medium bowl.\n4. Cook pasta in the boiling water, stirring occasionally, for 1 minute. Add spinach and peas and cook until the pasta is tender, about 1 minute more. Reserve 1/4 cup of the cooking water. Drain and place in a large bowl.\n5. Slowly whisk the reserved cooking water into the egg mixture. Gradually add the mixture to the pasta, tossing with tongs to combine. Serve topped with the reserved breadcrumb mixture.",
-        "image": "/images/recipes/easy_pea_spinach_carbonara.png",
+        "image": "/images/recipes/easy_pea_spinach_carbonara.webp",
         "calories": 430,
         "fat": 15,
         "carbs": 54,
@@ -75,7 +75,7 @@ recipes = [
     {
         "name": "Chhole (Chickpea Curry)",
         "instructions": "1. Pulse serrano, garlic and ginger in a food processor until minced. Scrape down the sides and pulse again. Add onion; pulse until finely chopped, but not watery.\n2. Heat oil in a large saucepan over medium-high heat. Add the onion mixture and cook, stirring occasionally, until softened, 3 to 5 minutes. Add coriander, cumin and turmeric and cook, stirring, for 2 minutes.\n3. Pulse tomatoes in the food processor until finely chopped. Add to the pan along with salt. Reduce heat to maintain a simmer and cook, stirring occasionally, for 4 minutes. Add chickpeas and garam masala, reduce heat to a gentle simmer, cover and cook, stirring occasionally, for 5 minutes more. Serve topped with cilantro, if desired.",
-        "image": "/images/recipes/chhole.png",
+        "image": "/images/recipes/chhole.webp",
         "calories": 278,
         "fat": 16,
         "carbs": 30,
@@ -146,7 +146,7 @@ recipes = [
     {
         "name": "Classic Sesame Noodles with Chicken",
         "instructions": "1. Cook spaghetti in a pot of boiling water according to package directions. Drain, rinse and transfer to a large bowl.\n2. Combine sesame oil, scallions, garlic, ginger and brown sugar in a small saucepan. Heat over medium heat until starting to sizzle. Cook for 15 seconds. Remove from heat and stir in soy sauce and ketchup. Add to the noodles along with chicken, carrots, snap peas and sesame seeds; gently toss to combine.",
-        "image": "/images/recipes/sesame_noodles_with_chicken.png",
+        "image": "/images/recipes/sesame_noodles_with_chicken.webp",
         "calories": 460,
         "fat": 17,
         "carbs": 53,
@@ -217,7 +217,7 @@ recipes = [
     {
         "name": "Spinach & Feta Scrambled Egg Pitas",
         "instructions": "1. Heat oil in a large nonstick skillet over medium heat. Add spinach and salt and cook until steaming hot, stirring occasionally. Add eggs and cook, stirring the eggs as they set, until they form soft curds and are just moist, 4 to 5 minutes. Add feta and pepper and cook until set.\n2. Spread tapenade (or pesto) inside pita pockets, 2 teaspoons per pita. Divide the egg mixture among the pitas.",
-        "image": "/images/recipes/spinach_feta_scrambled_egg_pitas.png",
+        "image": "/images/recipes/spinach_feta_scrambled_egg_pitas.webp",
         "calories": 303,
         "fat": 16,
         "carbs": 21,
@@ -258,7 +258,7 @@ recipes = [
     {
         "name": "One-Skillet Bourbon Chicken",
         "instructions": "1. Combine soy sauce, bourbon, apple juice, vinegar, maple syrup, garlic, ginger and crushed red pepper in a small bowl.\n2. Toss together chicken and 1 tablespoon cornstarch in a large bowl. Heat oil in a large nonstick skillet over medium-high heat. Add the chicken; cook, stirring occasionally, until golden brown and crispy, 6 to 8 minutes. Add the soy-bourbon mixture; stir to coat. Cook, stirring often, until the sauce has reduced to a syrupy consistency and the chicken is cooked through, 6 to 8 minutes.\n3. Combine water and the remaining 1 teaspoon cornstarch in a small bowl; stir to mix well. Add to the pan; cook, stirring often, until the sauce thickens and coats the chicken, 1 to 2 minutes.\n4. Divide rice among 4 plates; top with the chicken and sauce. Garnish with scallions, if desired.",
-        "image": "/images/recipes/one_skillet_bourbon_chicken.png",
+        "image": "/images/recipes/one_skillet_bourbon_chicken.webp",
         "calories": 521,
         "fat": 15,
         "carbs": 48,
@@ -335,7 +335,7 @@ recipes = [
     {
         "name": "Refried Bean & Pico de Gallo Tostadas",
         "instructions": "1. Preheat oven to 375°F. Arrange tortillas on a large baking sheet. Use a pastry brush to brush both sides of each tortilla lightly with oil. Sprinkle with salt. Bake for 5 minutes, flip and cook until lightly browned, about 5 more minutes.\n2. Spread warmed refried beans evenly over the tortillas and top each with pico de gallo.",
-        "image": "/images/recipes/refried_bean_pico_de_gallo_tostadas.png",
+        "image": "/images/recipes/refried_bean_pico_de_gallo_tostadas.webp",
         "calories": 276,
         "fat": 6,
         "carbs": 50,
@@ -371,7 +371,7 @@ recipes = [
     {
         "name": "Scallop Scampi with Pasta",
         "instructions": "1. Bring a saucepan of water to boil; cook pasta according to package directions. Drain and cover to keep warm.\n2. Meanwhile, heat 1 tablespoon oil in a large nonstick skillet over medium-high heat. Pat scallops dry. Sprinkle the scallops evenly on both sides with salt and 1/4 teaspoon ground pink peppercorns (or ground pepper). Add half of the scallops to the pan; cook, turning once, until golden brown, 1 to 2 minutes per side. Transfer to a plate; cover to keep warm. Repeat with the remaining 1 tablespoon oil and scallops.\n3. Reduce heat to medium; add garlic and capers to the pan; cook, stirring constantly, until fragrant, about 30 seconds. Stir in wine, lemon zest, lemon juice and the remaining 1/2 teaspoon ground pink peppercorns (or 1/4 teaspoon ground pepper). Bring to a simmer; cook, stirring occasionally, until reduced by half, about 3 minutes.\n4. Remove from heat; stir in the pasta and parsley. Divide evenly among 4 plates. Top with the scallops and, if desired, additional ground pink peppercorns (or pepper).",
-        "image": "/images/recipes/scallop_scampi_with_pasta.png",
+        "image": "/images/recipes/scallop_scampi_with_pasta.webp",
         "calories": 435,
         "fat": 9,
         "carbs": 61,
@@ -437,7 +437,7 @@ recipes = [
     {
         "name": "White Bean & Sun-Dried Tomato Gnocchi",
         "instructions": "1. Heat 1 tablespoon oil in a large nonstick skillet over medium-high heat. Add gnocchi and cook, stirring often, until plumped and starting to brown, about 5 minutes. Add beans and spinach and cook until the spinach is wilted, about 1 minute. Transfer to a plate.\n2. Add the remaining 1 tablespoon oil to the pan and heat over medium heat. Add sun-dried tomatoes and shallot; cook, stirring, for 1 minute. Increase heat to high and add broth. Cook until the liquid has mostly evaporated, about 2 minutes.\n3. Reduce heat to medium and stir in cream, lemon juice, salt and pepper. Return the gnocchi mixture to the pan and stir to coat with the sauce. Serve topped with basil.",
-        "image": "/images/recipes/white_bean_sun_dried_tomato_gnocchi.png",
+        "image": "/images/recipes/white_bean_sun_dried_tomato_gnocchi.webp",
         "calories": 437,
         "fat": 13,
         "carbs": 69,
@@ -503,7 +503,7 @@ recipes = [
     {
         "name": "Farro Bowl with Rotisserie Chicken",
         "instructions": "1. Microwave farro according to package directions; set aside to cool slightly.\n2. Toss together salad kit in a large bowl. Add chicken and the cooled farro; toss to combine.",
-        "image": "/images/recipes/farro_bowl_rotisserie_chicken.png",
+        "image": "/images/recipes/farro_bowl_rotisserie_chicken.webp",
         "calories": 288,
         "fat": 3,
         "carbs": 40,
@@ -529,7 +529,7 @@ recipes = [
     {
         "name": "Teriyaki Edamame Sauté",
         "instructions": "Heat oil in a large nonstick skillet over medium heat. Add coleslaw mix and cook, stirring, until the cabbage begins to soften, about 2 minutes. Stir in edamame and teriyaki sauce. Cook, stirring, until the edamame are heated through and the sauce thickens, about 1 minute more.",
-        "image": "/images/recipes/teriyaki_edamame_saute.png",
+        "image": "/images/recipes/teriyaki_edamame_saute.webp",
         "calories": 249,
         "fat": 12,
         "carbs": 21,
@@ -560,7 +560,7 @@ recipes = [
     {
         "name": "Breakfast Naan Pizza",
         "instructions": "1. Preheat oven to 425°F. Coat a rimmed baking sheet with cooking spray.\n2. Place naan on the prepared pan. Mix ricotta, marinara (or pesto) and lemon zest in a small bowl. Spread the mixture onto the naan, creating a well in the center. Carefully crack egg into the well. Sprinkle with Parmesan. Bake until the naan is golden, the egg white is set and the cheese is melted, 8 to 10 minutes. Garnish with basil and pepper, if desired.",
-        "image": "/images/recipes/breakfast_naan_pizza.png",
+        "image": "/images/recipes/breakfast_naan_pizza.webp",
         "calories": 458,
         "fat": 17,
         "carbs": 52,
@@ -601,7 +601,7 @@ recipes = [
     {
         "name": "Lentil Curry with Cauliflower Rice",
         "instructions": "1. Prepare cauliflower rice according to package directions; divide between two bowls.\n2. Combine lentils and simmer sauce in a small skillet or saucepan over medium-low heat; heat to steaming, stirring often. Serve the lentils atop the cauliflower rice.",
-        "image": "/images/recipes/lentil_curry_cauliflower_rice.png",
+        "image": "/images/recipes/lentil_curry_cauliflower_rice.webp",
         "calories": 257,
         "fat": 5,
         "carbs": 38,
@@ -627,7 +627,7 @@ recipes = [
     {
         "name": "Crispy Fish Taco Bowls",
         "instructions": "1. Preheat oven to 475 degrees F. Place a wire rack on a rimmed baking sheet; coat with cooking spray.\n2. Coat fish with 1/4 cup mayonnaise. Place panko in a shallow dish and roll the fish in it. Transfer to the rack on the pan. Bake the fish until crispy and cooked through, 8 to 12 minutes, depending on thickness.\n3. Meanwhile, mix the remaining 1/4 cup mayonnaise, sour cream, adobo sauce, lime juice and pinch of salt in a small bowl.\n4. Sprinkle the fish with the remaining 1/4 teaspoon salt and pepper. Divide rice among 4 bowls and top with the fish, cabbage, radishes, the sauce and cilantro, if desired.",
-        "image": "/images/recipes/crispy_fish_taco_bowls.png",
+        "image": "/images/recipes/crispy_fish_taco_bowls.webp",
         "calories": 478,
         "fat": 25,
         "carbs": 42,
@@ -693,7 +693,7 @@ recipes = [
     {
         "name": "Mozzarella, Basil & Zucchini Frittata",
         "instructions": "1. Position rack in upper third of oven; preheat broiler.\n2. Heat oil in a large broiler-safe nonstick or cast-iron skillet over medium-high heat. Add onion and zucchini and cook, stirring frequently, until soft, 3 to 5 minutes.\n3. Meanwhile, whisk eggs, salt and pepper in a bowl. Pour the eggs over the vegetables in the pan. Cook, lifting the edges to allow uncooked egg from the middle to flow underneath, until nearly set, about 2 minutes. Arrange mozzarella and sun-dried tomatoes on top and place the skillet under the broiler until the eggs are slightly browned, 1 1/2 to 2 minutes. Let stand for 3 minutes. Top with basil.\n4. To release the frittata from the pan, run a spatula around the edge, then underneath, until you can slide or lift it out onto a cutting board or serving plate. Cut into 4 slices and serve.",
-        "image": "/images/recipes/mozzarella_basil_zucchini_frittata.png",
+        "image": "/images/recipes/mozzarella_basil_zucchini_frittata.webp",
         "calories": 292,
         "fat": 21,
         "carbs": 8,
@@ -749,7 +749,7 @@ recipes = [
     {
         "name": "Salmon Tacos with Pineapple Salsa",
         "instructions": "1. Arrange oven rack in upper third of oven so salmon will be 2 to 3 inches below heat source. Preheat broiler to high.\n 2. Line a baking sheet with foil. Lay salmon on the foil, skin-side down. Broil, rotating the pan from front to back once, until the salmon is starting to brown, is opaque on the sides and the thinner parts of the fillet are sizzling, 5 to 8 minutes, depending on thickness.\n3. Sprinkle the salmon with chili powder and 1/4 teaspoon salt. Drizzle with 1 teaspoon oil and brush with a heatproof brush to moisten the spices. Return to the oven and continue broiling until the salmon just flakes and the spices are browned, 1 to 2 minutes more\n4. Meanwhile, toss coleslaw mix with lime juice, the remaining 1 tablespoon oil and the remaining 1/2 teaspoon salt.\n5. Flake the salmon, discarding skin. Divide the salmon among tortillas and top with salsa. Serve with the coleslaw and garnish with cilantro and hot sauce, if desired.",
-        "image": "/images/recipes/salmon_tacos_pineapple_salsa.png",
+        "image": "/images/recipes/salmon_tacos_pineapple_salsa.webp",
         "calories": 320,
         "fat": 11,
         "carbs": 30,
@@ -800,7 +800,7 @@ recipes = [
     {
         "name": "Quick Shrimp Puttanesca",
         "instructions": "1. Bring a large pot of water to a boil. Cook linguine according to package instructions. Drain.\n2. Meanwhile, heat oil in a large skillet over high heat. Add shrimp in a single layer and cook, undisturbed, until browned on the bottom, 2 to 3 minutes. Stir in tomato sauce. Add artichoke hearts, olives, capers and salt; cook, stirring often, until the shrimp is cooked through and the artichoke hearts are hot, 2 to 3 minutes longer.\n3. Add the drained noodles to the sauce and stir to combine. Divide among 4 pasta bowls. Serve hot.",
-        "image": "/images/recipes/shrimp_puttanesca.png",
+        "image": "/images/recipes/shrimp_puttanesca.webp",
         "calories": 390,
         "fat": 8,
         "carbs": 43,
@@ -851,7 +851,7 @@ recipes = [
     {
         "name": "Beef Pad Thai",
         "instructions": "1. Bring a pot of water to a boil. Cook noodles in boiling water according to package instructions until al dente. Reserve 1 cup cooking liquid and drain the noodles.\n2. Meanwhile, heat oil in a large nonstick skillet over medium-high heat. Add beef, and cook, crumbling with a wooden spoon, until browned, 4 to 5 minutes. Add snap peas, carrots and scallions, and cook, stirring often, until the peas are bright green, 2 to 3 minutes.\n3. Add sauce, the noodles and about half of the reserved cooking liquid; stir with tongs to coat. Reduce heat to medium-low; simmer, adding more of the reserved cooking liquid to moisten if necessary and stirring occasionally, until the vegetables are crisp-tender, 2 to 3 minutes longer. Serve hot with chopped peanuts and lime wedges.",
-        "image": "/images/recipes/beef_pad_thai.png",
+        "image": "/images/recipes/beef_pad_thai.webp",
         "calories": 465,
         "fat": 13,
         "carbs": 65,
@@ -897,7 +897,7 @@ recipes = [
     {
         "name": "Vegan Coconut Chickpea Curry",
         "instructions": "1. Heat oil in a large skillet over medium-high heat. Add onion, pepper and zucchini; cook, stirring often, until the vegetables begin to brown, 5 to 6 minutes.\n2. Add chickpeas, simmer sauce and broth and bring to a simmer, stirring. Reduce heat to medium-low and simmer until the vegetables are tender, 4 to 6 minutes. Stir in spinach just before serving. Serve over rice.",
-        "image": "/images/recipes/vegan_coconut_chickpea_curry.png",
+        "image": "/images/recipes/vegan_coconut_chickpea_curry.webp",
         "calories": 471,
         "fat": 18,
         "carbs": 66,
@@ -953,7 +953,7 @@ recipes = [
     {
         "name": "One-Pot Spinach, Chicken Sausage & Feta Pasta",
         "instructions": "Heat oil in a large straight-sided skillet over medium-high heat. Add sausage, onion and garlic; cook, stirring often, until the onion is starting to brown, 4 to 6 minutes. Add tomato sauce, spinach, pasta and olives; cook, stirring often, until bubbling hot and the spinach is wilted, 3 to 5 minutes. Add 1 to 2 tablespoons water, if necessary, to keep the pasta from sticking. Stir in feta and basil, if using.",
-        "image": "/images/recipes/one_pot_spinach_chicken_sausage_feta_pasta.png",
+        "image": "/images/recipes/one_pot_spinach_chicken_sausage_feta_pasta.webp",
         "calories": 487,
         "fat": 20,
         "carbs": 59,
@@ -1014,7 +1014,7 @@ recipes = [
     {
         "name": "Philly Cheese Steak Sloppy Joes",
         "instructions": "1. Arrange oven rack in upper third of the oven. Preheat broiler. Line a baking sheet with foil.\n2. Heat oil in a large skillet over medium-high heat. Add beef, oregano and salt; cook, crumbling with a wooden spoon, until cooked through, 4 to 6 minutes. Add tomato sauce and cook until bubbling, 1 to 2 minutes.\n3. Meanwhile, warm peppers and onions in a small skillet over medium heat, stirring often. (Alternatively, microwave for 1 minute to reheat.)\n4. Lay rolls, split-side open, on the prepared baking sheet. Broil, rotating the pan as necessary, until just starting to brown and toast, 1 to 2 minutes. Remove from the oven.\n5. Top toasted buns with the beef mixture, dividing evenly. Top with the peppers and onions and then cheese. Broil just until the cheese is melted, 30 seconds to 1 minute. Wrap each sub in foil until ready to eat. Serve hot.",
-        "image": "/images/recipes/philly_cheese_steak_sloppy_joes.png",
+        "image": "/images/recipes/philly_cheese_steak_sloppy_joes.webp",
         "calories": 413,
         "fat": 20,
         "carbs": 29,
